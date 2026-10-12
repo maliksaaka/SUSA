@@ -109,6 +109,16 @@ footer#ft{padding:70px 40px 110px;text-align:center;border-top:1px solid rgba(12
 .fsm{opacity:.45;margin-top:14px;font-size:10px}
 @media(max-width:760px){.about{grid-template-columns:1fr;padding:100px 22px 40px;gap:30px}.flip{justify-self:stretch;max-width:none}#pet{position:static;height:120px;margin-top:18px}#hero{min-height:calc(100vh - 56px)}footer#ft{padding:50px 20px 100px}}
 @media(prefers-reduced-motion:reduce){#pet.pop{animation:none}}
+
+body[data-r=music] .art{height:31vh}
+@keyframes in2{to{opacity:.95}}
+@media(max-width:760px){
+body[data-r=home] main{min-height:0;padding-bottom:0}#hero{min-height:0;justify-content:flex-start;padding:104px 20px 10px}#pet{margin-top:-28px;height:130px}
+footer#ft{padding:26px 20px 100px;border-top:0}#sub{flex-direction:column;gap:14px}#sub label{font-size:13px;opacity:1}
+#sub input[type=email]{width:min(300px,86vw);font-size:15px;padding:10px 12px;border:1px solid currentColor;text-align:center}#sub button{font-size:13px;border:1px solid currentColor;padding:9px 22px}
+.head{justify-content:flex-start;min-height:0;padding:104px 20px 30px}
+.art,body[data-r=music] .art{position:static;display:block;height:17vh;margin:0 auto 18px;transform:none;z-index:1;animation:in2 .9s .15s forwards,rock 4.5s ease-in-out infinite}
+body[data-r=music] .art{height:15vh}.head:hover .art{transform:none}}
 </style></head><body data-r="home">
 <header id="hd"><div class="l"><a href="/" data-link aria-label="Home"><span id="mk"><svg id="mark" viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text fill="currentColor" font-size="10.5" font-weight="500" letter-spacing="3.2"><textPath href="#c">SUBTLE URBAN SEX APPEAL ·</textPath></text></svg></span></a><span class="cap tag">[the greatest show on earth]</span></div>
 <button id="tog" class="cap" aria-expanded="false">Menu</button>
@@ -168,7 +178,7 @@ async function cartAdd(variantId){const lines=[{merchandiseId:variantId,quantity
 async function cartRemove(lineId){const d=await sfq(`mutation($id:ID!,$ids:[ID!]!){cartLinesRemove(cartId:$id,lineIds:$ids){cart{${CART_F}}}}`,{id:CART.id,ids:[lineId]});CART=d.cartLinesRemove.cart;cartRender()}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-add]');if(a){const v=a.parentNode.querySelector('select,input').value;a.disabled=true;cartAdd(v).catch(err=>console.warn(err.message)).finally(()=>a.disabled=false)}
  const r=e.target.closest('[data-rm]');if(r)cartRemove(r.dataset.rm);if(e.target.closest('#cartbtn'))$('#cart').classList.add('open');if(e.target.closest('#cartx'))$('#cart').classList.remove('open')});
-const PETS=['lamb-bow','satyr','heads','lamb-spiked','heads2'];let petI=Math.floor(Math.random()*PETS.length);
+const PETS=['lamb-bow','satyr','lamb-spiked','ballgag','bear','poodle','cow','pig','fluffcat','cat','bunny'];let petI=Math.floor(Math.random()*PETS.length);
 document.getElementById('mark').addEventListener('click',()=>{petI=(petI+1)%PETS.length;const p=document.getElementById('pet');if(p){p.classList.remove('pop');void p.offsetWidth;p.src='/img/'+PETS[petI]+'-cream.png';p.classList.add('pop')}});
 // About photo flipper
 let flipT=null;
