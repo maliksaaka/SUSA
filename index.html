@@ -129,6 +129,13 @@ body[data-r=home] footer#ft{padding:14px 20px 10px}
 body[data-r=home] #sub{gap:10px}
 body[data-r=home]{display:flex;flex-direction:column;box-sizing:border-box;padding-bottom:var(--pb);min-height:100vh;min-height:100dvh;min-height:100svh}
 body[data-r=home] main{flex:1 0 auto}body[data-r=home] footer#ft{flex:0 0 auto}
+body[data-r=home] footer#ft{padding:10px 0 0;margin:0}
+body[data-r=home] #sub{display:grid;grid-template-columns:1fr auto;gap:0;align-items:stretch;width:100%}
+body[data-r=home] #sub label{grid-column:1/-1;text-align:center;margin:0 0 8px}
+body[data-r=home] #sub input[type=email]{width:auto;min-width:0;height:46px;box-sizing:border-box;margin:0;padding:0 12px;border:1px solid currentColor;border-right:0;text-align:left}
+body[data-r=home] #sub button{height:46px;box-sizing:border-box;margin:0;padding:0 16px;border:1px solid currentColor;white-space:nowrap}
+body[data-r=home]{padding-bottom:calc(var(--pb) + env(safe-area-inset-bottom,0px))}
+#player{padding-bottom:env(safe-area-inset-bottom,0px);height:calc(56px + env(safe-area-inset-bottom,0px));box-sizing:border-box}
 }
 </style></head><body data-r="home">
 <header id="hd"><div class="l"><a href="/" data-link aria-label="Home"><span id="mk"><svg id="mark" viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text fill="currentColor" font-size="10.5" font-weight="500" letter-spacing="3.2"><textPath href="#c">SUBTLE URBAN SEX APPEAL ·</textPath></text></svg></span></a><span class="cap tag">[the greatest show on earth]</span></div>
