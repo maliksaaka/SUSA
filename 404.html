@@ -119,6 +119,17 @@ footer#ft{padding:26px 20px 100px;border-top:0}#sub{flex-direction:column;gap:14
 .head{justify-content:flex-start;min-height:0;padding:104px 20px 30px}
 .art,body[data-r=music] .art{position:static;display:block;height:17vh;margin:0 auto 18px;transform:none;z-index:1;animation:in2 .9s .15s forwards,rock 4.5s ease-in-out infinite}
 body[data-r=music] .art{height:15vh}.head:hover .art{transform:none}}
+@media(max-width:700px){
+body[data-r=home]{--pb:56px}
+body[data-r=home] main{min-height:0;padding:0}
+body[data-r=home] #hero{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:96px 20px 0;min-height:0}
+body[data-r=home] #arch{display:block;margin:0 auto}
+body[data-r=home] #pet{position:static;display:block;margin:-24px auto 0;right:auto;left:auto;transform-origin:50% 100%;max-width:60vw;height:min(130px,20svh)}
+body[data-r=home] footer#ft{padding:14px 20px 10px}
+body[data-r=home] #sub{gap:10px}
+body[data-r=home]{display:flex;flex-direction:column;box-sizing:border-box;padding-bottom:var(--pb);min-height:100vh;min-height:100dvh;min-height:100svh}
+body[data-r=home] main{flex:1 0 auto}body[data-r=home] footer#ft{flex:0 0 auto}
+}
 </style></head><body data-r="home">
 <header id="hd"><div class="l"><a href="/" data-link aria-label="Home"><span id="mk"><svg id="mark" viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text fill="currentColor" font-size="10.5" font-weight="500" letter-spacing="3.2"><textPath href="#c">SUBTLE URBAN SEX APPEAL ·</textPath></text></svg></span></a><span class="cap tag">[the greatest show on earth]</span></div>
 <button id="tog" class="cap" aria-expanded="false">Menu</button>
