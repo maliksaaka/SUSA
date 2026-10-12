@@ -14,18 +14,28 @@
 body{font-family:'Instrument Sans',sans-serif;background:var(--black);color:var(--cream);transition:background .4s,color .4s}
 body[data-r=about]{background:#fff;color:#6E0F1A}body[data-r=writing]{background:var(--red)}body[data-r=music]{background:var(--green)}body[data-r=shop]{background:var(--cream);color:var(--red)}
 a{color:inherit;text-decoration:none}
-.cap{text-transform:uppercase;letter-spacing:.22em;font-size:12px}
+.cap{text-transform:uppercase;letter-spacing:.22em;font-size:11px}
 .u{border-bottom:1px solid currentColor}
 header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:22px 40px}
 header .l{display:flex;align-items:center;gap:18px}
 #mark{width:64px;height:64px;display:block}
 header nav{display:flex;gap:26px}
 header nav a.on{border-bottom:1px solid currentColor}
-sup{font-size:9px;margin-left:2px}
 #tog{display:none;background:none;border:0;color:inherit;cursor:pointer}
 main{min-height:100vh;padding-bottom:40px}
-.side{position:fixed;top:50%;writing-mode:vertical-rl;opacity:.7}
-.side.l{left:30px;transform:translateY(-50%) rotate(180deg)}.side.r{right:30px;transform:translateY(-50%)}
+.side{position:fixed;top:50%;z-index:15;writing-mode:vertical-rl;opacity:.7;cursor:pointer;background:none;border:0;color:inherit;font-family:inherit;padding:10px 4px;transition:opacity .3s}.side:hover{opacity:1}
+#mark{animation:spin 40s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}#mk{display:block;transition:transform .3s ease-out}
+main{overflow-x:hidden}#app.sl{will-change:transform,opacity}
+.out-l{animation:outL .32s cubic-bezier(.55,0,.75,.3) forwards}.out-r{animation:outR .32s cubic-bezier(.55,0,.75,.3) forwards}.in-l{animation:inL .55s cubic-bezier(.22,1,.36,1)}.in-r{animation:inR .55s cubic-bezier(.22,1,.36,1)}
+@keyframes outL{to{transform:translateX(-12vw);opacity:0}}@keyframes outR{to{transform:translateX(12vw);opacity:0}}@keyframes inL{from{transform:translateX(12vw);opacity:0}}@keyframes inR{from{transform:translateX(-12vw);opacity:0}}
+.scroll5{max-height:calc(5 * 76px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;-webkit-mask-image:linear-gradient(#000 calc(100% - 48px),transparent);mask-image:linear-gradient(#000 calc(100% - 48px),transparent)}
+.scroll5:hover{scrollbar-width:thin;scrollbar-color:rgba(244,236,220,.35) transparent}.scroll5::-webkit-scrollbar{width:0}.scroll5:hover::-webkit-scrollbar{width:3px}.scroll5::-webkit-scrollbar-thumb{background:rgba(244,236,220,.35)}
+.scroll5.end{-webkit-mask-image:none;mask-image:none}.scroll5 li{min-height:76px;padding:14px 0}
+.more{opacity:.45;font-size:10px;margin-top:10px;text-align:right}
+.art.neon{opacity:.95;transform:translateY(-40%) rotate(6deg);animation:neon 7s infinite}
+@keyframes neon{0%,100%{opacity:.95}50%{opacity:.88}}
+@media(prefers-reduced-motion:reduce){#mark,.art.neon,.out-l,.out-r,.in-l,.in-r{animation:none!important}}
+.side.l{left:26px;transform:translateY(-50%) rotate(180deg)}.side.r{right:26px;transform:translateY(-50%)}
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
 #arch{width:min(520px,80vw)}#hero p{margin-top:10px;opacity:.7}
 .head{position:relative;min-height:62vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 40px 40px;overflow:hidden}
@@ -38,7 +48,7 @@ main{min-height:100vh;padding-bottom:40px}
 .list{list-style:none;border-top:1px solid rgba(244,236,220,.25)}
 body[data-r=shop] .list{border-color:rgba(173,16,15,.25)}
 .list li{display:flex;align-items:center;gap:22px;padding:20px 0;border-bottom:1px solid rgba(244,236,220,.25)}
-.list .t{flex:1;font-size:20px;line-height:1.3}.list .t small{display:block;font-size:14px;opacity:.7;margin-top:4px}
+.list .t{flex:1;font-size:18px;line-height:1.3}.list .t small{display:block;font-size:14px;opacity:.7;margin-top:4px}
 .list .d{opacity:.6;white-space:nowrap}
 .pb{width:34px;height:34px;flex:none;border:1px solid currentColor;border-radius:50%;background:none;color:inherit;cursor:pointer;font-size:11px}
 .links{display:flex;gap:28px;justify-content:center;margin:0 0 50px;flex-wrap:wrap}
@@ -86,7 +96,7 @@ header nav .cap{font-size:20px}header.open nav{display:flex}
 #cartlines small{display:block;opacity:.7;margin-top:4px}
 .about{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:center;padding:130px 80px 80px;max-width:1300px;margin:0 auto}
 .flip{aspect-ratio:1;width:100%;max-width:560px;justify-self:end;background:#F4ECDC center/cover no-repeat}
-.bio .word{margin-bottom:28px}.biotext{font-size:19px;line-height:1.6;max-width:540px}
+.bio .word{margin-bottom:28px}.biot{font-size:16px;line-height:1.6;max-width:540px;margin-bottom:1.25em}.biot:last-child{margin-bottom:0}
 .contact{margin-top:34px;display:flex;gap:28px;flex-wrap:wrap}.todo{background:#FDBE2A;color:#111;padding:2px 6px}
 body[data-r=about] header,body[data-r=about] .side{color:#6E0F1A}
 #pet{position:absolute;right:48px;bottom:84px;height:84px;opacity:.85;filter:drop-shadow(2px 0 0 rgba(255,0,60,.55)) drop-shadow(-2px 1px 0 rgba(0,170,255,.45)) drop-shadow(0 -1px 0 rgba(253,190,42,.5))}
@@ -101,10 +111,10 @@ footer#ft{padding:70px 40px 110px;text-align:center;border-top:1px solid rgba(12
 @media(max-width:760px){.about{grid-template-columns:1fr;padding:100px 22px 40px;gap:30px}.flip{justify-self:stretch;max-width:none}#pet{right:20px;bottom:76px;height:60px}footer#ft{padding:50px 20px 100px}}
 @media(prefers-reduced-motion:reduce){#pet.pop{animation:none}}
 </style></head><body data-r="home">
-<header id="hd"><div class="l"><a href="/" data-link aria-label="Home"><svg id="mark" viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text fill="currentColor" font-size="10.5" font-weight="500" letter-spacing="3.2"><textPath href="#c">SUBTLE URBAN SEX APPEAL ·</textPath></text></svg></a><span class="cap tag">[the greatest show on earth]</span></div>
+<header id="hd"><div class="l"><a href="/" data-link aria-label="Home"><span id="mk"><svg id="mark" viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text fill="currentColor" font-size="10.5" font-weight="500" letter-spacing="3.2"><textPath href="#c">SUBTLE URBAN SEX APPEAL ·</textPath></text></svg></span></a><span class="cap tag">[the greatest show on earth]</span></div>
 <button id="tog" class="cap" aria-expanded="false">Menu</button>
-<nav id="nav"><a class="cap" data-link href="/writing">Writing<sup>1</sup></a><a class="cap" data-link href="/podcast">Podcast<sup>2</sup></a><a class="cap" data-link href="/music">Music<sup>3</sup></a><a class="cap" data-link href="/shop">Shop<sup>4</sup></a><a class="cap" href="https://www.patreon.com/SubtleUrbanSexAppeal" target="_blank" rel="noopener">Patreon<sup>5</sup></a><a class="cap" data-link href="/about">About</a></nav></header>
-<span class="side l cap" id="sl">scroll down</span><span class="side r cap" id="sr">scroll down</span>
+<nav id="nav"><a class="cap" data-link href="/writing">Writing</a><a class="cap" data-link href="/podcast">Podcast</a><a class="cap" data-link href="/music">Music</a><a class="cap" data-link href="/shop">Shop</a><a class="cap" href="https://www.patreon.com/SubtleUrbanSexAppeal" target="_blank" rel="noopener">Patreon</a><a class="cap" data-link href="/about">About</a></nav></header>
+<button class="side l cap" id="sl" type="button">&larr; about</button><button class="side r cap" id="sr" type="button">writing &rarr;</button>
 <main id="app"></main>
 <footer id="ft"><form class="cap" action="https://saakamalik.substack.com/api/v1/free?nojs=true" method="post" target="_blank" id="sub"><label for="subem">[letters from susa]</label><input id="subem" type="email" name="email" required placeholder="email"><input type="hidden" name="first_url" value="https://subtleurbansexappeal.com/"><button type="submit" aria-label="Subscribe">subscribe &rarr;</button></form><p class="cap fsm">via substack</p></footer>
 <button id="cartbtn" class="cap" style="display:none">Cart (0)</button>
@@ -124,7 +134,7 @@ const V={
 home:()=>`<section id="hero"><svg id="arch" viewBox="0 0 400 220"><defs><path id="a" d="M40,200 A160,160 0 0,1 360,200"/></defs><text fill="#F4ECDC" font-size="22" font-weight="500" letter-spacing="6" text-anchor="middle"><textPath href="#a" startOffset="50%">SUBTLE URBAN SEX APPEAL</textPath></text></svg><p class="cap">[writing / podcast / music / shop]</p><img id="pet" alt="" src="/img/${PETS[petI]}-cream.png"></section>`,
 writing:()=>head('writing','lamb-bow-cream.png','[essays / substack]')+`<div class="wrap"><ul class="list">${D.writing.map(w=>`<li><a class="t" href="${w.url}" target="_blank" rel="noopener">${esc(w.title)}${w.sub?`<small>${esc(w.sub)}</small>`:''}</a><span class="cap d">${fd(w.date)}</span></li>`).join('')}</ul><p class="note cap"><a class="u" href="https://saakamalik.substack.com/" target="_blank" rel="noopener">Subscribe on Substack &rarr;</a></p></div>`,
 podcast:()=>head('podcast','satyr-cream.png')+`<div class="wrap"><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple Podcasts &rarr;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;</a></div><ul class="list">${D.episodes.map((e,i)=>`<li><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play">&#9654;</button><span class="t">${esc(e.title)}</span><span class="cap d">${fd(e.date)}</span></li>`).join('')}</ul></div>`,
-music:()=>head('music','heads-cream.png','[malik saaka (fka sxylk)]')+`<div class="wrap"><div class="links cap"><a class="u" href="https://soundcloud.com/sxylks" target="_blank" rel="noopener">SoundCloud &rarr;</a><a class="u" href="https://www.mixcloud.com/invisibles/" target="_blank" rel="noopener">Mixcloud &rarr;</a></div><ul class="list">${D.tracks.map((t,i)=>`<li><button class="pb" data-tr="${i}" data-key="tr:${t.url}" aria-label="Play">&#9654;</button><span class="t">${esc(t.title)}</span><span class="cap d">${fd(t.date)}</span><span class="cap d">${mm(t.dur)}</span></li>`).join('')}</ul><p class="cap" style="opacity:.75;margin:60px 0 18px">[mixes / mixcloud]</p><ul class="list">${D.mixes.map(m=>`<li><a class="t" href="https://www.mixcloud.com${m.key}" target="_blank" rel="noopener">${esc(m.name)} <span class="cap" style="font-size:12px;opacity:.7">&nearr;</span></a>${m.date?`<span class="cap d">${fd(m.date)}</span>`:''}${m.dur?`<span class="cap d">${mm(m.dur)}</span>`:''}</li>`).join('')}</ul></div>`,
+music:()=>head('music','heads-cream.png','[malik saaka (fka sxylk)]')+`<div class="wrap"><div class="links cap"><a class="u" href="https://soundcloud.com/sxylks" target="_blank" rel="noopener">SoundCloud &rarr;</a><a class="u" href="https://www.mixcloud.com/invisibles/" target="_blank" rel="noopener">Mixcloud &rarr;</a></div><ul class="list scroll5">${D.tracks.map((t,i)=>`<li><button class="pb" data-tr="${i}" data-key="tr:${t.url}" aria-label="Play">&#9654;</button><span class="t">${esc(t.title)}</span><span class="cap d">${fd(t.date)}</span><span class="cap d">${mm(t.dur)}</span></li>`).join('')}</ul>${D.tracks.length>5?'<p class="cap more">scroll &darr;</p>':''}<p class="cap" style="opacity:.75;margin:60px 0 18px">[mixes / mixcloud]</p><ul class="list${D.mixes.length>5?' scroll5':''}">${D.mixes.map(m=>`<li><a class="t" href="https://www.mixcloud.com${m.key}" target="_blank" rel="noopener">${esc(m.name)} <span class="cap" style="font-size:12px;opacity:.7">&nearr;</span></a>${m.date?`<span class="cap d">${fd(m.date)}</span>`:''}${m.dur?`<span class="cap d">${mm(m.dur)}</span>`:''}</li>`).join('')}</ul></div>`,
 shopGrid:()=>`<div id="shopgrid" class="grid"><p class="cap note" style="grid-column:1/-1">[loading]</p></div>`,
 shop:()=>shopLocked()?`<section class="soon"><svg class="sarch" viewBox="0 0 400 150" aria-label="Coming soon"><defs><path id="sa" d="M50,140 A150,120 0 0,1 350,140"/></defs><text fill="currentColor" font-size="24" font-weight="500" letter-spacing="9" text-anchor="middle"><textPath href="#sa" startOffset="50%">COMING SOON</textPath></text></svg><img class="slamb" src="/img/lamb-spiked-red.png" alt=""><p class="cap" style="opacity:.8;margin-top:22px">[merch is in the oven]</p><form id="gate" class="cap" autocomplete="off"><input id="gpw" type="password" aria-label="Password" placeholder="password"><button type="submit" aria-label="Enter">&rarr;</button></form><p id="gmsg" class="cap" aria-live="polite"></p></section>`:head('shop','lamb-spiked-red.png')+V.shopGrid(),
 about:()=>`<section class="about"><div class="flip" id="flip" aria-hidden="true"></div><div class="bio"><h1 class="word" style="font-size:clamp(64px,9vw,140px)">about</h1><p class="biot">Malik Saaka is a writer, podcast host and music producer based in Los Angeles, working where culture, sound and business meet.</p>
@@ -177,18 +187,35 @@ function gcCount(){if(window.goatcounter&&goatcounter.count)goatcounter.count({p
 const META={home:['Subtle Urban Sex Appeal','Writing, podcast and music from Malik Saaka.'],writing:['Writing / SUSA','Essays by Malik Saaka.'],podcast:['Podcast / SUSA','Subtle Urban Sex Appeal, the podcast.'],music:['Music / SUSA','Music by Malik Saaka (fka SXYLK).'],shop:['Shop / SUSA','SUSA merch.'],about:['About / SUSA','About Malik Saaka and SUSA.']};
 function setMeta(r){const [t,d]=META[r];document.title=t;[['meta[name=description]',d],['meta[property="og:title"]',t],['meta[property="og:description"]',d],['meta[name="twitter:title"]',t],['meta[name="twitter:description"]',d]].forEach(([q,v])=>{const m=document.querySelector(q);if(m)m.setAttribute('content',v)});
  const u=document.querySelector('meta[property="og:url"]');if(u)u.setAttribute('content','https://subtleurbansexappeal.com'+(r==='home'?'/':'/'+r))}
-const SIDE={home:['scroll down','scroll down'],writing:['01','substack'],podcast:['02','podcast'],music:['03','archive'],shop:['04','merch'],about:['','']};
+const ORDER=['home','writing','podcast','music','shop','about'],PATH=r=>r==='home'?'/':'/'+r;let CUR='home';
+const nb=d=>ORDER[(ORDER.indexOf(CUR)+d+ORDER.length)%ORDER.length];
+const RM=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;let navDir=0,busy=false;
+function step(d){if(busy)return;navDir=d;go(PATH(nb(d)))}
 const HASH=!/^https?:/.test(location.protocol);
-function route(){let r=(HASH?location.hash.slice(1):location.pathname).replace(/^\/+|\/+$/g,'').replace(/\.html$/,'')||'home';if(r==='index')r='home';if(!V[r])r='home';
- document.body.dataset.r=r;$('#app').innerHTML=V[r]();$('#sl').textContent=SIDE[r][0];$('#sr').textContent=SIDE[r][1];
+function route(){const dir=navDir;navDir=0;let r=(HASH?location.hash.slice(1):location.pathname).replace(/^\/+|\/+$/g,'').replace(/\.html$/,'')||'home';if(r==='index')r='home';if(!V[r])r='home';
+ const app=$('#app');if(dir&&!RM()&&app.innerHTML){busy=true;app.className=dir>0?'out-l':'out-r';setTimeout(()=>{busy=false;render(r,dir)},300);return}render(r,0)}
+function render(r,dir){const app=$('#app');CUR=r;
+ document.body.dataset.r=r;app.innerHTML=V[r]();app.className=dir?(dir>0?'in-l':'in-r'):'';$('#sl').innerHTML='&larr; '+nb(-1);$('#sr').innerHTML=nb(1)+' &rarr;';neon();scroll5();
  document.querySelectorAll('#nav a[data-link]').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='/'+r));
  $('#hd').classList.remove('open');$('#tog').textContent='Menu';scrollTo(0,0);if(typeof ui==='function')ui();if(document.getElementById('shopgrid'))shopLoad();setMeta(r);flipStart();gcCount()}
-function go(p){if(HASH)location.hash=p;else{history.pushState({},'',p);route()}}
+function go(p){if(HASH)location.hash=p;else{if(location.pathname===p)return;history.pushState({},'',p);route()}}
+$('#sl').onclick=()=>step(-1);$('#sr').onclick=()=>step(1);
+addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('input,select,textarea,[contenteditable]'))return;if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1)});
+let tx=null,ty=0;const NOSW='input,select,textarea,button,.scroll5,#player,#cart,header nav';
+addEventListener('touchstart',e=>{const t=e.touches[0];tx=(e.touches.length>1||e.target.closest(NOSW))?null:t.clientX;ty=t.clientY},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;tx=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)step(dx<0?1:-1)},{passive:true});
+function scroll5(){document.querySelectorAll('.scroll5').forEach(l=>{const f=()=>l.classList.toggle('end',l.scrollTop+l.clientHeight>=l.scrollHeight-4);l.onscroll=f;f()})}
+let neonT=null;function neon(){clearTimeout(neonT);const a=document.querySelector('.head .art');if(!a||RM()||document.body.dataset.r==='shop')return;
+ setTimeout(()=>{if(document.body.contains(a))a.classList.add('neon')},1100);
+ const base=a.style.filter||getComputedStyle(a).filter;
+ const dip=()=>{if(!document.body.contains(a))return;const n=1+Math.floor(Math.random()*3);let i=0;
+  const one=()=>{a.animate([{opacity:.95,filter:base},{opacity:.72+Math.random()*.12,filter:base+' brightness(.9)'},{opacity:.95,filter:base+' drop-shadow(0 0 6px rgba(253,190,42,.35))'},{opacity:.95,filter:base}],{duration:140+Math.random()*160,easing:'ease-in-out'});if(++i<n)setTimeout(one,180+Math.random()*120)};one();
+  neonT=setTimeout(dip,2500+Math.random()*5000)};neonT=setTimeout(dip,1800+Math.random()*2500)}
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-link]');if(a){e.preventDefault();go(a.getAttribute('href'))}
  const b=e.target.closest('[data-ep]');if(b){const ep=D.episodes[+b.dataset.ep];if(P.key==='ep:'+ep.mp3){P.playing?pauseCur():playCur()}else{load(ep);au.play().catch(()=>{})}}});
 addEventListener('popstate',route);addEventListener('hashchange',route);
 $('#tog').onclick=()=>{const o=$('#hd').classList.toggle('open');$('#tog').textContent=o?'Close':'Menu';$('#tog').setAttribute('aria-expanded',o)};
-const m=$('#mark');addEventListener('scroll',()=>m.style.transform=`rotate(${scrollY*.15}deg)`,{passive:true});
+const m=$('#mk');addEventListener('scroll',()=>m.style.transform=`rotate(${scrollY*.15}deg)`,{passive:true});
 // unified bottom player: one source at a time (podcast MP3 via <audio>, SoundCloud via hidden widget)
 const mm=s=>isFinite(s)&&s>=0?Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'):'0:00';
 const P={kind:'mp3',t:0,d:0,playing:false};
