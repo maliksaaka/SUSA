@@ -129,24 +129,26 @@ body[data-r=home] footer#ft{padding:14px 20px 10px}
 body[data-r=home] #sub{gap:10px}
 body[data-r=home]{display:flex;flex-direction:column;box-sizing:border-box;padding-bottom:var(--pb);min-height:100vh;min-height:100dvh;min-height:100svh}
 body[data-r=home] main{flex:1 0 auto}body[data-r=home] footer#ft{flex:0 0 auto}
-body[data-r=home] footer#ft{padding:10px 0 0;margin:0}
-body[data-r=home] #sub{display:grid;grid-template-columns:1fr auto;gap:0;align-items:stretch;width:100%}
-body[data-r=home] #sub label{grid-column:1/-1;text-align:center;margin:0 0 8px}
-body[data-r=home] #sub input[type=email]{width:auto;min-width:0;height:46px;box-sizing:border-box;margin:0;padding:0 12px;border:1px solid currentColor;border-right:0;text-align:left}
-body[data-r=home] #sub button{height:46px;box-sizing:border-box;margin:0;padding:0 16px;border:1px solid currentColor;white-space:nowrap}
+footer#ft{padding:10px 0 0;margin:0}
+#ft #sub{display:grid;grid-template-columns:1fr auto;gap:0;align-items:stretch;width:100%}
+#ft #sub label{grid-column:1/-1;text-align:center;margin:0 0 8px}
+#ft #sub input[type=email]{width:auto;min-width:0;height:46px;box-sizing:border-box;margin:0;padding:0 12px;border:1px solid currentColor;border-right:0;text-align:left}
+#ft #sub button{height:46px;box-sizing:border-box;margin:0;padding:0 16px;border:1px solid currentColor;white-space:nowrap}
 body[data-r=home]{padding-bottom:calc(var(--pb) + env(safe-area-inset-bottom,0px))}
+body:not([data-r=home]){padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))!important}body:not([data-r=home]) main{padding-bottom:0;margin-bottom:0}footer#ft{padding:30px 0 0!important;margin:0;border-top:0}body[data-r=home] footer#ft{padding:10px 0 0!important}
 #player{padding-bottom:env(safe-area-inset-bottom,0px);height:calc(56px + env(safe-area-inset-bottom,0px));box-sizing:border-box}
 }
+html{font-variant-emoji:text}.ic{display:inline-block;vertical-align:middle;font-style:normal}.ic.pl{width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent currentColor;margin-left:2px}.ic.pa{width:8px;height:10px;border-left:3px solid currentColor;border-right:3px solid currentColor;box-sizing:border-box}
 </style></head><body data-r="home">
 <header id="hd"><div class="l"><a href="/" data-link aria-label="Home"><span id="mk"><svg id="mark" viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text fill="currentColor" font-size="10.5" font-weight="500" letter-spacing="3.2"><textPath href="#c">SUBTLE URBAN SEX APPEAL ·</textPath></text></svg></span></a><span class="cap tag">[the greatest show on earth]</span></div>
 <button id="tog" class="cap" aria-expanded="false">Menu</button>
 <nav id="nav"><a class="cap" data-link href="/writing">Writing</a><a class="cap" data-link href="/podcast">Podcast</a><a class="cap" data-link href="/music">Music</a><a class="cap" data-link href="/shop">Shop</a><a class="cap" href="https://www.patreon.com/SubtleUrbanSexAppeal" target="_blank" rel="noopener">Patreon</a><a class="cap" data-link href="/about">About</a></nav></header>
-<button class="side l cap" id="sl" type="button">&larr; about</button><button class="side r cap" id="sr" type="button">writing &rarr;</button>
+<button class="side l cap" id="sl" type="button">&larr;&#xFE0E; about</button><button class="side r cap" id="sr" type="button">writing &rarr;&#xFE0E;</button>
 <main id="app"></main>
-<footer id="ft"><form class="cap" action="https://saakamalik.substack.com/api/v1/free?nojs=true" method="post" target="_blank" id="sub"><label for="subem">[letters from susa]</label><input id="subem" type="email" name="email" required placeholder="email"><input type="hidden" name="first_url" value="https://subtleurbansexappeal.com/"><button type="submit" aria-label="Subscribe">subscribe &rarr;</button></form></footer>
+<footer id="ft"><form class="cap" action="https://saakamalik.substack.com/api/v1/free?nojs=true" method="post" target="_blank" id="sub"><label for="subem">[letters from susa]</label><input id="subem" type="email" name="email" required placeholder="email"><input type="hidden" name="first_url" value="https://subtleurbansexappeal.com/"><button type="submit" aria-label="Subscribe">subscribe &rarr;&#xFE0E;</button></form></footer>
 <button id="cartbtn" class="cap" style="display:none">Cart (0)</button>
-<aside id="cart" aria-label="Cart"><div class="ch cap"><span>[cart]</span><button id="cartx" class="cap">close</button></div><ul id="cartlines"></ul><div class="cf cap"><span id="cartsub"></span><a id="checkout" class="u" href="#">checkout &rarr;</a></div></aside>
-<div id="player"><button id="pp" aria-label="Play">&#9654;</button><span class="cap" style="opacity:.6">Now playing</span><span class="cap" id="pt"></span><span id="bar"><span id="fill"></span></span><span class="cap" id="tm"></span></div>
+<aside id="cart" aria-label="Cart"><div class="ch cap"><span>[cart]</span><button id="cartx" class="cap">close</button></div><ul id="cartlines"></ul><div class="cf cap"><span id="cartsub"></span><a id="checkout" class="u" href="#">checkout &rarr;&#xFE0E;</a></div></aside>
+<div id="player"><button id="pp" aria-label="Play"><i class="ic pl"></i></button><span class="cap" style="opacity:.6">Now playing</span><span class="cap" id="pt"></span><span id="bar"><span id="fill"></span></span><span class="cap" id="tm"></span></div>
 <audio id="au" preload="metadata"></audio>
 <script src="/config.js"></script>
 <script src="/data.js"></script>
@@ -154,16 +156,17 @@ body[data-r=home]{padding-bottom:calc(var(--pb) + env(safe-area-inset-bottom,0px
 <script>
 const D=window.SUSA,$=s=>document.querySelector(s),au=$('#au');
 const SPOTIFY='https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz',APPLE='https://podcasts.apple.com/us/podcast/subtle-urban-sex-appeal/id1716496998',PATREON='https://www.patreon.com/SubtleUrbanSexAppeal';
-const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clean=s=>String(s||'').replace(/[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\uFE0F\u200D\u20E3]/gu,'').replace(/\s{2,}/g,' ').trim();
+const esc=s=>clean(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fd=d=>new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
 const head=(w,img,lab)=>`<section class="head"><img class="art" src="/img/${img}" alt=""><h1 class="word">${w}</h1>${lab?`<p class="cap" style="margin-top:26px;opacity:.75">${lab}</p>`:''}</section>`;
 const V={
 home:()=>`<section id="hero"><svg id="arch" viewBox="0 0 400 220"><defs><path id="a" d="M40,200 A160,160 0 0,1 360,200"/></defs><text fill="#F4ECDC" font-size="22" font-weight="500" letter-spacing="6" text-anchor="middle"><textPath href="#a" startOffset="50%">SUBTLE URBAN SEX APPEAL</textPath></text></svg><img id="pet" alt="" src="/img/${PETS[petI]}-cream.png"></section>`,
-writing:()=>head('writing','lamb-bow-cream.png','[essays / substack]')+`<div class="wrap"><ul class="list">${D.writing.map(w=>`<li><a class="t" href="${w.url}" target="_blank" rel="noopener">${esc(w.title)}${w.sub?`<small>${esc(w.sub)}</small>`:''}</a><span class="cap d">${fd(w.date)}</span></li>`).join('')}</ul><p class="note cap"><a class="u" href="https://saakamalik.substack.com/" target="_blank" rel="noopener">Subscribe on Substack &rarr;</a></p></div>`,
-podcast:()=>head('podcast','satyr-cream.png')+`<div class="wrap"><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple Podcasts &rarr;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;</a></div><ul class="list">${D.episodes.map((e,i)=>`<li><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play">&#9654;</button><span class="t">${esc(e.title)}</span><span class="cap d">${fd(e.date)}</span></li>`).join('')}</ul></div>`,
-music:()=>head('music','cow-cream.png','[malik saaka (fka sxylk)]')+`<div class="wrap"><div class="links cap"><a class="u" href="https://soundcloud.com/sxylks" target="_blank" rel="noopener">SoundCloud &rarr;</a><a class="u" href="https://www.mixcloud.com/invisibles/" target="_blank" rel="noopener">Mixcloud &rarr;</a></div><ul class="list scroll5">${D.tracks.map((t,i)=>`<li><button class="pb" data-tr="${i}" data-key="tr:${t.url}" aria-label="Play">&#9654;</button><span class="t">${esc(t.title)}</span><span class="cap d">${fd(t.date)}</span><span class="cap d">${mm(t.dur)}</span></li>`).join('')}</ul>${D.tracks.length>5?'<p class="cap more">scroll &darr;</p>':''}<p class="cap" style="opacity:.75;margin:60px 0 18px">[mixes / mixcloud]</p><ul class="list${D.mixes.length>5?' scroll5':''}">${D.mixes.map(m=>`<li><a class="t" href="https://www.mixcloud.com${m.key}" target="_blank" rel="noopener">${esc(m.name)} <span class="cap" style="font-size:12px;opacity:.7">&nearr;</span></a>${m.date?`<span class="cap d">${fd(m.date)}</span>`:''}${m.dur?`<span class="cap d">${mm(m.dur)}</span>`:''}</li>`).join('')}</ul></div>`,
+writing:()=>head('writing','lamb-bow-cream.png','[essays / substack]')+`<div class="wrap"><ul class="list">${D.writing.map(w=>`<li><a class="t" href="${w.url}" target="_blank" rel="noopener">${esc(w.title)}${w.sub?`<small>${esc(w.sub)}</small>`:''}</a><span class="cap d">${fd(w.date)}</span></li>`).join('')}</ul><p class="note cap"><a class="u" href="https://saakamalik.substack.com/" target="_blank" rel="noopener">Subscribe on Substack &rarr;&#xFE0E;</a></p></div>`,
+podcast:()=>head('podcast','satyr-cream.png')+`<div class="wrap"><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;&#xFE0E;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple Podcasts &rarr;&#xFE0E;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;&#xFE0E;</a></div><ul class="list">${D.episodes.map((e,i)=>`<li><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play"><i class="ic pl"></i></button><span class="t">${esc(e.title)}</span><span class="cap d">${fd(e.date)}</span></li>`).join('')}</ul></div>`,
+music:()=>head('music','cow-cream.png','[malik saaka (fka sxylk)]')+`<div class="wrap"><div class="links cap"><a class="u" href="https://soundcloud.com/sxylks" target="_blank" rel="noopener">SoundCloud &rarr;&#xFE0E;</a><a class="u" href="https://www.mixcloud.com/invisibles/" target="_blank" rel="noopener">Mixcloud &rarr;&#xFE0E;</a></div><ul class="list scroll5">${D.tracks.map((t,i)=>`<li><button class="pb" data-tr="${i}" data-key="tr:${t.url}" aria-label="Play"><i class="ic pl"></i></button><span class="t">${esc(t.title)}</span><span class="cap d">${mm(t.dur)}</span></li>`).join('')}</ul>${D.tracks.length>5?'<p class="cap more">scroll &darr;&#xFE0E;</p>':''}<p class="cap" style="opacity:.75;margin:60px 0 18px">[mixes / mixcloud]</p><ul class="list${D.mixes.length>5?' scroll5':''}">${D.mixes.map(m=>`<li><a class="t" href="https://www.mixcloud.com${m.key}" target="_blank" rel="noopener">${esc(m.name)} <span class="cap" style="font-size:12px;opacity:.7">&nearr;&#xFE0E;</span></a>${m.dur?`<span class="cap d">${mm(m.dur)}</span>`:''}</li>`).join('')}</ul></div>`,
 shopGrid:()=>`<div id="shopgrid" class="grid"><p class="cap note" style="grid-column:1/-1">[loading]</p></div>`,
-shop:()=>shopLocked()?`<section class="soon"><svg class="sarch" viewBox="0 0 400 150" aria-label="Coming soon"><defs><path id="sa" d="M50,140 A150,120 0 0,1 350,140"/></defs><text fill="currentColor" font-size="24" font-weight="500" letter-spacing="9" text-anchor="middle"><textPath href="#sa" startOffset="50%">COMING SOON</textPath></text></svg><img class="slamb" src="/img/lamb-spiked-red.png" alt=""><p class="cap" style="opacity:.8;margin-top:22px">[merch is in the oven]</p><form id="gate" class="cap" autocomplete="off"><input id="gpw" type="password" aria-label="Password" placeholder="password"><button type="submit" aria-label="Enter">&rarr;</button></form><p id="gmsg" class="cap" aria-live="polite"></p></section>`:head('shop','lamb-spiked-red.png')+V.shopGrid(),
+shop:()=>shopLocked()?`<section class="soon"><svg class="sarch" viewBox="0 0 400 150" aria-label="Coming soon"><defs><path id="sa" d="M50,140 A150,120 0 0,1 350,140"/></defs><text fill="currentColor" font-size="24" font-weight="500" letter-spacing="9" text-anchor="middle"><textPath href="#sa" startOffset="50%">COMING SOON</textPath></text></svg><img class="slamb" src="/img/lamb-spiked-red.png" alt=""><p class="cap" style="opacity:.8;margin-top:22px">[merch is in the oven]</p><form id="gate" class="cap" autocomplete="off"><input id="gpw" type="password" aria-label="Password" placeholder="password"><button type="submit" aria-label="Enter">&rarr;&#xFE0E;</button></form><p id="gmsg" class="cap" aria-live="polite"></p></section>`:head('shop','lamb-spiked-red.png')+V.shopGrid(),
 about:()=>`<section class="about"><div class="flip" id="flip" aria-hidden="true"></div><div class="bio"><h1 class="word" style="font-size:clamp(64px,9vw,140px)">about</h1><p class="biot">Malik Saaka is a writer, podcast host and music producer based in Los Angeles, working where culture, sound and business meet.</p>
 <p class="biot">Formerly known as the DJ and producer SXYLK, he created and hosts SUSA (Subtle Urban Sex Appeal), a podcast and Substack that treats desire, identity and pop culture with the rigor of philosophy. His essays dissect the hidden logic of culture, sexuality, race, astrology and tech, naming what most people feel but never say out loud.</p>
 <p class="biot">He has collaborated with Mugler, Boiler Room, Design Miami, Red Bull Music, iHeartRadio, Essence and Basic.Space. His music has been featured in The FADER and Pitchfork, and his advocacy work has been covered by The New York Times, Bloomberg, NBC News, Quartz, TheBody, Out, PAPER, them., PinkNews, Time Out New York, Eater NY and FOX 5 New York.</p>
@@ -182,7 +185,7 @@ async function shopLoad(){const g=$('#shopgrid');try{const d=await sfq(`{product
  PRODUCTS=d.products.edges.map(e=>e.node);if(!document.body.contains(g))return;
  if(!PRODUCTS.length){g.outerHTML=`<div class="empty"><p class="cap">[nothing on the rack yet]</p><p class="cap" style="opacity:.6;margin-top:10px">check back soon</p></div>`;return}
  g.innerHTML=PRODUCTS.map((p,i)=>{const vs=p.variants.edges.map(e=>e.node),one=vs.length===1&&vs[0].title==='Default Title';
- return `<div class="item prod"><div class="pic">${p.featuredImage?`<img src="${p.featuredImage.url}&width=700" alt="${esc(p.featuredImage.altText||p.title)}">`:''}</div><div class="meta cap"><span>${esc(p.title)}</span><span>${money(vs[0].price)}</span></div><div class="buy cap">${one?`<input type="hidden" value="${vs[0].id}">`:`<select aria-label="Size">${vs.map(v=>`<option value="${v.id}" ${v.availableForSale?'':'disabled'}>${esc(v.title)}${v.availableForSale?'':' (sold out)'}</option>`).join('')}</select>`}<button data-add="${i}" ${vs.some(v=>v.availableForSale)?'':'disabled'}>add &rarr;</button></div></div>`}).join('')}
+ return `<div class="item prod"><div class="pic">${p.featuredImage?`<img src="${p.featuredImage.url}&width=700" alt="${esc(p.featuredImage.altText||p.title)}">`:''}</div><div class="meta cap"><span>${esc(p.title)}</span><span>${money(vs[0].price)}</span></div><div class="buy cap">${one?`<input type="hidden" value="${vs[0].id}">`:`<select aria-label="Size">${vs.map(v=>`<option value="${v.id}" ${v.availableForSale?'':'disabled'}>${esc(v.title)}${v.availableForSale?'':' (sold out)'}</option>`).join('')}</select>`}<button data-add="${i}" ${vs.some(v=>v.availableForSale)?'':'disabled'}>add &rarr;&#xFE0E;</button></div></div>`}).join('')}
  catch(e){if(document.body.contains(g))g.innerHTML=`<p class="cap note" style="grid-column:1/-1">[shop unavailable right now]</p>`;console.warn('shop',e.message)}}
 let CART=null;
 function cartRender(){const n=CART?CART.totalQuantity:0;$('#cartbtn').style.display=n?'block':'none';$('#cartbtn').textContent=`Cart (${n})`;
@@ -222,7 +225,7 @@ const HASH=!/^https?:/.test(location.protocol);
 function route(){const dir=navDir;navDir=0;let r=(HASH?location.hash.slice(1):location.pathname).replace(/^\/+|\/+$/g,'').replace(/\.html$/,'')||'home';if(r==='index')r='home';if(!V[r])r='home';
  const app=$('#app');if(dir&&!RM()&&app.innerHTML){busy=true;app.className=dir>0?'out-l':'out-r';setTimeout(()=>{busy=false;render(r,dir)},300);return}render(r,0)}
 function render(r,dir){const app=$('#app');CUR=r;
- document.body.dataset.r=r;app.innerHTML=V[r]();app.className=dir?(dir>0?'in-l':'in-r'):'';$('#sl').innerHTML='&larr; '+nb(-1);$('#sr').innerHTML=nb(1)+' &rarr;';scroll5();
+ document.body.dataset.r=r;app.innerHTML=V[r]();app.className=dir?(dir>0?'in-l':'in-r'):'';$('#sl').innerHTML='&larr;&#xFE0E; '+nb(-1);$('#sr').innerHTML=nb(1)+' &rarr;&#xFE0E;';scroll5();
  document.querySelectorAll('#nav a[data-link]').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='/'+r));
  $('#hd').classList.remove('open');$('#tog').textContent='Menu';scrollTo(0,0);if(typeof ui==='function')ui();if(document.getElementById('shopgrid'))shopLoad();setMeta(r);flipStart();gcCount()}
 function go(p){if(HASH)location.hash=p;else{if(location.pathname===p)return;history.pushState({},'',p);route()}}
@@ -240,8 +243,8 @@ const m=$('#mk');addEventListener('scroll',()=>m.style.transform=`rotate(${scrol
 // unified bottom player: one source at a time (podcast MP3 via <audio>, SoundCloud via hidden widget)
 const mm=s=>isFinite(s)&&s>=0?Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'):'0:00';
 const P={kind:'mp3',t:0,d:0,playing:false};
-function ui(){$('#fill').style.width=(P.d?P.t/P.d*100:0)+'%';$('#tm').textContent=mm(P.t)+' / '+mm(P.d);$('#pp').innerHTML=P.playing?'&#10074;&#10074;':'&#9654;';
- document.querySelectorAll('[data-ep],[data-tr]').forEach(b=>b.innerHTML=(P.playing&&b.dataset.key===P.key)?'&#10074;&#10074;':'&#9654;')}
+function ui(){$('#fill').style.width=(P.d?P.t/P.d*100:0)+'%';$('#tm').textContent=mm(P.t)+' / '+mm(P.d);$('#pp').innerHTML=P.playing?'<i class="ic pa"></i>':'<i class="ic pl"></i>';
+ document.querySelectorAll('[data-ep],[data-tr]').forEach(b=>b.innerHTML=(P.playing&&b.dataset.key===P.key)?'<i class="ic pa"></i>':'<i class="ic pl"></i>')}
 const scf=document.createElement('iframe');scf.id='scw';scf.allow='autoplay';scf.title='SoundCloud';scf.setAttribute('aria-hidden','true');
 scf.style.cssText='position:absolute;width:1px;height:1px;left:-9999px;opacity:0';
 scf.src='https://w.soundcloud.com/player/?url='+encodeURIComponent((D.tracks[0]||{url:'https://soundcloud.com/sxylks'}).url)+'&auto_play=false';
@@ -255,8 +258,8 @@ function scInit(){if(!window.SC)return setTimeout(scInit,200);scw=SC.Widget(scf)
  scw.bind(SC.Widget.Events.PLAY_PROGRESS,e=>{if(P.kind!=='sc')return;P.t=e.currentPosition/1000;if(!P.d)scw.getDuration(x=>P.d=x/1000);ui()})}
 scInit();
 function scDo(f){scReady?f():(scPending=f)}
-function load(e){if(scw)scw.pause();P.kind='mp3';P.key='ep:'+e.mp3;au.src=e.mp3;au.volume=.5;P.t=0;P.d=0;$('#pt').textContent=e.title;ui()}
-function loadTrack(t){au.pause();P.kind='sc';P.key='tr:'+t.url;P.t=0;P.d=t.dur;P.playing=false;$('#pt').textContent=t.title;ui();
+function load(e){if(scw)scw.pause();P.kind='mp3';P.key='ep:'+e.mp3;au.src=e.mp3;au.volume=.5;P.t=0;P.d=0;$('#pt').textContent=clean(e.title);ui()}
+function loadTrack(t){au.pause();P.kind='sc';P.key='tr:'+t.url;P.t=0;P.d=t.dur;P.playing=false;$('#pt').textContent=clean(t.title);ui();
  scDo(()=>scw.load(t.url,{auto_play:true,show_comments:false,callback:()=>{scw.setVolume(50);scw.play()}}))}
 function playCur(){P.kind==='sc'?scDo(()=>scw.play()):au.play().catch(()=>{})}
 function pauseCur(){P.kind==='sc'?scw&&scw.pause():au.pause()}
@@ -270,6 +273,6 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-tr]');if(!
  if(P.key==='tr:'+t.url){P.playing?pauseCur():playCur()}else loadTrack(t)});
 if(D.episodes.length){load(D.episodes[Math.floor(Math.random()*Math.min(3,D.episodes.length))]);
  au.play().catch(()=>{const u=ev=>{['click','touchend','keydown'].forEach(t=>removeEventListener(t,u,true));if(ev.target.closest&&ev.target.closest('#pp,[data-ep],[data-tr]'))return;if(P.kind==='mp3')au.play().catch(()=>{})};['click','touchend','keydown'].forEach(t=>addEventListener(t,u,true))})}
-else{$('#pt').innerHTML=`<a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Listen on Spotify &rarr;</a>`;$('#pp').style.display='none'}
+else{$('#pt').innerHTML=`<a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Listen on Spotify &rarr;&#xFE0E;</a>`;$('#pp').style.display='none'}
 route();cartFetch();
 </script></body></html>
