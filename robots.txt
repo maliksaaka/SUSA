@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://subtleurbansexappeal.com/sitemap.xml

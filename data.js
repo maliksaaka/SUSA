@@ -3,62 +3,182 @@ window.SUSA={
   {
    "title": "Coldest War Ever (w/Taylor DeClue)",
    "date": "2026-10-02",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6abecdb90e2e02bcec308862/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6abecdb90e2e02bcec308862/media.mp3",
+   "slug": "coldest-war-ever-w-taylor-declue",
+   "note": "Coldest War Ever is part two of Malik Saaka's conversation with decoder, historian and pattern-analyst Taylor DeClue. It picks up the Cold War thread with Nicki Minaj's space-race symbolism and her ties to Elon Musk, the psychology of AI dependency and digital dissociation, the Raven-Symoné \"picture them green\" controversy, and what personal sovereignty costs people who live under constant public scrutiny. The full episode is on Patreon.",
+   "desc": "Part two with Taylor DeClue: Nicki Minaj's space-race symbolism and Elon Musk ties, AI dependency, the Raven-Symoné \"picture them green\" controversy and more.",
+   "tags": [
+    "Taylor DeClue podcast",
+    "Cold War symbolism",
+    "Nicki Minaj Elon Musk",
+    "AI dependency",
+    "Raven-Symoné picture them green"
+   ]
   },
   {
    "title": "SUSA HR: Sticking It To The Man (But Not My Man)",
    "date": "2026-10-01",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6abeaf687a2f8831f4b3270c/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6abeaf687a2f8831f4b3270c/media.mp3",
+   "slug": "susa-hr-sticking-it-to-the-man-but-not-my-man",
+   "note": "This SUSA HR segment answers one question: is it worth fighting with your man over Apple products? Malik's answer is no, it's not worth it. Send your own HR questions to subtleurbansexappeal@gmail.com.",
+   "desc": "SUSA HR, the advice segment of Subtle Urban Sex Appeal: is it worth beefing with your man over Apple products? Malik Saaka says no. Send in your HR questions.",
+   "tags": [
+    "SUSA HR",
+    "relationship advice podcast",
+    "fighting with your boyfriend",
+    "Apple products argument",
+    "advice column podcast"
+   ]
   },
   {
    "title": "Free The \"P\"",
    "date": "2026-09-25",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6ab6a202864264ef3eefbecb/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6ab6a202864264ef3eefbecb/media.mp3",
+   "slug": "free-the-p",
+   "note": "Free The \"P\" argues that saying #FreePalestine cannot be the bar for morality. Malik walks through the Macklemore \"Free Palestine Tour\" mess, which grew out of the Ed Sheeran fallout, plus the matched donations and the $700 resale tickets, and asks who it actually helps. From there it pulls apart real solidarity versus content, the nonprofit industrial complex, and what is holding back progress and strategy. There's also a section on the Nicole Hannah-Jones story as a snapshot of class, saviorism and who gets to own larger socioeconomic narratives.",
+   "desc": "Malik on the Macklemore Free Palestine Tour, the Ed Sheeran fallout, $700 resale tickets, real solidarity versus content and the nonprofit industrial complex.",
+   "tags": [
+    "Macklemore Free Palestine Tour",
+    "Macklemore Ed Sheeran",
+    "nonprofit industrial complex",
+    "solidarity vs performative activism",
+    "Nicole Hannah-Jones"
+   ]
   },
   {
    "title": "SUSA HR: Disfunctional Familia",
    "date": "2026-09-23",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6ab42ce462a47b6bec7db52d/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6ab42ce462a47b6bec7db52d/media.mp3",
+   "slug": "susa-hr-disfunctional-familia",
+   "note": "This SUSA HR segment is about family members who cause the problem. As the episode puts it, it's always the family members. Send your own HR questions to subtleurbansexappeal@gmail.com.",
+   "desc": "SUSA HR, the advice segment of Subtle Urban Sex Appeal, on dysfunctional family and why it's always the family members. Malik Saaka answers listener questions.",
+   "tags": [
+    "SUSA HR",
+    "dysfunctional family",
+    "family drama advice",
+    "relationship advice podcast",
+    "advice column podcast"
+   ]
   },
   {
    "title": "Choosing Texas (w/ Taylor DeClue)",
    "date": "2026-09-18",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6aada0ef64d244acc60afb81/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6aada0ef64d244acc60afb81/media.mp3",
+   "slug": "choosing-texas-w-taylor-declue",
+   "note": "Choosing Texas is Malik Saaka's first conversation with Taylor DeClue, a decoder and pattern-analyst who traces recurring symbols and narratives across culture, media and history. Taylor explains her method, built from years of research across shamanism, esoteric history and media studies, and how it differs from doomsday-style decoding. They cover the Cold War-era roots of recent denim and dairy branding tied to Beyoncé, Sydney Sweeney and the Gap-versus-American Eagle marketing cycle, the symbolism she reads into the Charlie Kirk memorial and Erica Kirk's public role afterward, America's civic structure and its ties to older hierarchies, and the AI and deepfake speculation around Drake's recent work.",
+   "desc": "Taylor DeClue on the Cold War roots of denim branding with Beyoncé, Sydney Sweeney and American Eagle, the Charlie Kirk memorial and AI speculation about Drake.",
+   "tags": [
+    "Taylor DeClue podcast",
+    "Cold War symbolism",
+    "Sydney Sweeney American Eagle",
+    "Charlie Kirk memorial symbolism",
+    "Drake AI deepfake"
+   ]
   },
   {
    "title": "Family Annihilation Pt.2 (w/ Desi Lamour)",
    "date": "2026-09-11",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6aa2b6e4ff74edfd00124318/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6aa2b6e4ff74edfd00124318/media.mp3",
+   "slug": "family-annihilation-pt-2-w-desi-lamour",
+   "note": "Family Annihilation Pt. 2 is the second half of a Lindsay Clancy deep dive with digital forensic analyst Desi Lamour. This half breaks down Patrick Clancy's behavior and the occult elements of the case that most coverage brushes off. Malik says he didn't expect the trial to end in a mistrial. Start with part one if you missed it.",
+   "desc": "Part two of the Lindsay Clancy deep dive with digital forensic analyst Desi Lamour: Patrick Clancy's behavior, the occult elements of the case, and a mistrial.",
+   "tags": [
+    "Lindsay Clancy case",
+    "Lindsay Clancy mistrial",
+    "Patrick Clancy",
+    "Desi Lamour",
+    "true crime podcast"
+   ]
   },
   {
    "title": "SUSA HR: F*CK CANCER!",
    "date": "2026-09-09",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6aa094837275dabe95aaaad2/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6aa094837275dabe95aaaad2/media.mp3",
+   "slug": "susa-hr-f-ck-cancer",
+   "note": "This SUSA HR segment covers gay domestic violence and what Malik calls typical Cancerian behavior, including stalker Cancers. Send your own HR questions to subtleurbansexappeal@gmail.com.",
+   "desc": "SUSA HR, the advice segment of Subtle Urban Sex Appeal, on gay domestic violence and stalker Cancer zodiac behavior. Malik Saaka answers a listener's question.",
+   "tags": [
+    "SUSA HR",
+    "gay domestic violence",
+    "Cancer zodiac sign",
+    "astrology podcast",
+    "relationship advice podcast"
+   ]
   },
   {
    "title": "Family Annihilation (w/ Desi Lamour)",
    "date": "2026-09-04",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a99e04d054653259a095883/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a99e04d054653259a095883/media.mp3",
+   "slug": "family-annihilation-w-desi-lamour",
+   "note": "Family Annihilation is part one of a two-part look at the Lindsay Clancy trial and Patrick Clancy's role in it, with Desi Lamour. Malik went in skeptical, expecting a scapegoating narrative built to turn public opinion against women. Desi walked him through the postpartum psychosis timeline and Patrick Clancy's actual involvement, and most of what he believed going in didn't hold.",
+   "desc": "Part one of the Lindsay Clancy trial with Desi Lamour: the postpartum psychosis timeline, Patrick Clancy's role, and why Malik Saaka's first take did not hold.",
+   "tags": [
+    "Lindsay Clancy case",
+    "Lindsay Clancy trial",
+    "postpartum psychosis",
+    "Desi Lamour",
+    "true crime podcast"
+   ]
   },
   {
    "title": "CLANCY LIVES MATTER",
    "date": "2026-09-01",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a9741001d1d1a8a9d549402/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a9741001d1d1a8a9d549402/media.mp3",
+   "slug": "clancy-lives-matter",
+   "note": "Clancy Lives Matter is a Subtle Urban Sex Appeal episode with no midroll ad, because Malik forgot where it was supposed to go. The feed description says one more thing: protect your mind.",
+   "desc": "Clancy Lives Matter, an episode of Subtle Urban Sex Appeal, the podcast from Malik Saaka in Los Angeles. No midroll ad. Protect your mind. Listen here.",
+   "tags": [
+    "Subtle Urban Sex Appeal podcast",
+    "Malik Saaka podcast",
+    "SUSA podcast",
+    "culture podcast",
+    "Los Angeles podcast"
+   ]
   },
   {
    "title": "SUSA HR: FFULL THROTTLE",
    "date": "2026-08-31",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a95f295cbb539139730fe96/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a95f295cbb539139730fe96/media.mp3",
+   "slug": "susa-hr-ffull-throttle",
+   "note": "This SUSA HR segment is definitely NSFW, with listener questions about fisting and stalking. Send your own HR questions to subtleurbansexappeal@gmail.com.",
+   "desc": "SUSA HR, the advice segment of Subtle Urban Sex Appeal, goes fully NSFW with listener questions about fisting and stalking. Malik Saaka answers. Listen here.",
+   "tags": [
+    "SUSA HR",
+    "sex advice podcast",
+    "stalking advice",
+    "NSFW podcast",
+    "relationship advice podcast"
+   ]
   },
   {
    "title": "SUSA HR: Hermeticism",
    "date": "2026-08-18",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a84b85eb9d83ea9ccffd60b/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a84b85eb9d83ea9ccffd60b/media.mp3",
+   "slug": "susa-hr-hermeticism",
+   "note": "This SUSA HR segment is about isolation, and how it can turn into desolation or into solitude and hermeticism depending on perspective and how you work it. Malik also points to the personal development resources on YouTube he used when he wanted a new job.",
+   "desc": "SUSA HR, the advice segment of Subtle Urban Sex Appeal, on isolation versus solitude and hermeticism, plus the resources Malik Saaka used to find a new job.",
+   "tags": [
+    "SUSA HR",
+    "isolation vs solitude",
+    "hermeticism",
+    "career change advice",
+    "advice column podcast"
+   ]
   },
   {
    "title": "Tucked & Dangerous w/ Lindsey Blohan",
    "date": "2026-08-14",
-   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a7d83027d85cbdf96dc85d3/media.mp3"
+   "mp3": "https://sphinx.acast.com/p/open/s/655033dd6b767e001271fe8b/e/6a7d83027d85cbdf96dc85d3/media.mp3",
+   "slug": "tucked-dangerous-w-lindsey-blohan",
+   "note": "Tucked & Dangerous is a Subtle Urban Sex Appeal episode with Lindsey Blohan, built on one idea: everyone on this earth has a particular set they're supposed to be working and a specific donation they need to be collecting. It came out ahead of SUSA Live on August 21, 2026.",
+   "desc": "Tucked & Dangerous with Lindsey Blohan on Subtle Urban Sex Appeal: everyone has a set they're supposed to be working and a donation they need to be collecting.",
+   "tags": [
+    "Lindsey Blohan",
+    "Tucked and Dangerous",
+    "SUSA Live",
+    "Subtle Urban Sex Appeal podcast",
+    "Malik Saaka podcast"
+   ]
   }
  ],
  "writing": [
