@@ -7,7 +7,7 @@
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Subtle Urban Sex Appeal"><meta name="twitter:description" content="Writing, podcast and music from Malik Saaka."><meta name="twitter:image" content="https://subtleurbansexappeal.com/og.png">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#AD100F">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{--red:#AD100F;--green:#2E6118;--black:#111;--cream:#F4ECDC;--gold:#FDBE2A}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -141,6 +141,76 @@ body:not([data-r=home]){padding-bottom:calc(56px + env(safe-area-inset-bottom,0p
 html{font-variant-emoji:text}.ic{display:inline-block;vertical-align:middle;font-style:normal}.ic.pl{width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent currentColor;margin-left:2px}.ic.pa{width:8px;height:10px;border-left:3px solid currentColor;border-right:3px solid currentColor;box-sizing:border-box}
 @media(max-width:700px){.dsk{display:none}}.epg .cap a{opacity:.8}.ept{font-size:clamp(26px,3.4vw,40px);font-weight:500;line-height:1.15;margin:18px 0 20px}.epm{display:flex;align-items:center;gap:16px;margin-bottom:26px}.epn.ld{min-height:5em}.yr{opacity:.75;margin:40px 0 14px}.epn{font-size:17px;line-height:1.6;max-width:640px;margin-bottom:30px}.tags{list-style:none;display:flex;flex-wrap:wrap;gap:12px 22px;margin-bottom:44px;font-size:11px}a.t{color:inherit;text-decoration:none}a.t:hover{text-decoration:underline}
 @media(max-width:700px){.ept{font-size:26px}.epn{font-size:16px}.tags{font-size:11px}}
+
+/* ===== redesign layer ===== */
+:root{--ease:cubic-bezier(.4,0,.2,1);--s1:8px;--s2:16px;--s3:32px;--s4:64px;--s5:128px;--disp:'Instrument Serif',Georgia,serif}
+::selection{background:var(--gold);color:var(--black)}
+body[data-r=about] ::selection{background:#6E0F1A;color:#fff}
+body{transition:background .4s var(--ease),color .4s var(--ease);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body[data-r=about]::after,body[data-r=shop]::after{opacity:.05;mix-blend-mode:multiply}
+.cap{letter-spacing:.2em}
+header{padding:var(--s3) var(--s4)}
+.head{padding:var(--s5) var(--s4) var(--s4);min-height:56vh}
+.wrap{padding:0 var(--s4)}
+.links{gap:var(--s3);margin:0 0 var(--s4)}
+.list li{gap:var(--s2);padding:var(--s2) 0;transition:opacity .3s var(--ease)}
+.list:hover li{opacity:.55}.list li:hover{opacity:1}
+.note{margin-top:var(--s3)}
+a.u,.u{border-bottom:1px solid transparent;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .3s var(--ease),opacity .3s var(--ease)}
+a.u{background-size:100% 1px}a.u:hover{background-size:0 1px}.u{border-bottom:0}
+header nav a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .3s var(--ease)}
+header nav a:hover,header nav a.on{background-size:100% 1px;border-bottom:0}
+.pb,#pp{transition:background .2s var(--ease),color .2s var(--ease)}.pb:hover{background:var(--cream);color:var(--black)}
+.art,#pet,.slamb,.empty img{filter:drop-shadow(3px 0 0 rgba(255,0,60,.45)) drop-shadow(-3px 1px 0 rgba(0,170,255,.4)) drop-shadow(0 -2px 0 rgba(253,190,42,.5))}
+.flip{filter:saturate(.85) contrast(1.04)}
+@keyframes rock{0%,100%{rotate:-2deg}50%{rotate:2deg}}
+.art{animation:in .4s .1s var(--ease) forwards,rock 6s var(--ease) infinite}
+#pet{animation:rock 6s var(--ease) infinite}#pet.pop{animation:fadein .4s var(--ease),rock 6s var(--ease) infinite}
+@keyframes fadein{from{opacity:0}}
+.slamb{animation:rock 6s var(--ease) infinite}
+#gate.shake{animation:none}
+.out-l,.out-r{animation:xout .24s var(--ease) forwards}.in-l,.in-r{animation:xin .36s var(--ease)}
+#app.fin{animation:xin .36s var(--ease)}
+@keyframes xout{to{opacity:0}}@keyframes xin{from{opacity:0}}
+/* episode page: back catalog */
+.epg{padding-top:var(--s3)}
+.epno{display:block;font-family:var(--disp);font-size:clamp(96px,16vw,220px);line-height:.8;letter-spacing:-.03em;opacity:.18;margin:var(--s4) 0 0}
+.epg .ept{font-size:clamp(40px,5.6vw,84px);line-height:1;font-weight:500;letter-spacing:-.02em;margin:calc(-1*var(--s3)) 0 var(--s3);max-width:16ch;position:relative}
+.epm{gap:var(--s2);margin-bottom:var(--s4)}
+.epn{font-size:18px;line-height:1.7;max-width:60ch;margin-bottom:var(--s4)}
+.epn::first-letter{font-family:var(--disp);float:left;font-size:4.2em;line-height:.8;padding:6px var(--s1) 0 0}
+.tags{gap:var(--s2) var(--s3);margin-bottom:var(--s4);padding-top:var(--s3);border-top:1px solid rgba(244,236,220,.25)}
+.yr{font-family:var(--disp);font-size:48px;letter-spacing:0;text-transform:none;opacity:.5;margin:var(--s4) 0 var(--s2)}
+/* about */
+.about{gap:var(--s4);padding:var(--s5) var(--s4) var(--s4)}
+.biot{font-size:17px;line-height:1.7}
+/* 404 */
+.nf{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:var(--s5) var(--s3) var(--s4)}
+.nf .word{font-size:clamp(88px,14vw,210px)}.nf img{height:min(30vh,240px);margin-bottom:var(--s3)}.nf p{margin-top:var(--s3)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.art{opacity:.95}}
+@media(max-width:760px){.art,body[data-r=music] .art{animation:in2 .4s .1s var(--ease) forwards,rock 6s var(--ease) infinite}header{padding:var(--s2) var(--s2)}.head{padding:104px var(--s2) var(--s3)}.wrap{padding:0 var(--s2)}.links{gap:var(--s3);flex-wrap:nowrap}.about{padding:96px var(--s2) var(--s4);gap:var(--s3)}
+.epno{font-size:96px;margin-top:var(--s3)}.epg .ept{font-size:34px;margin-top:-16px}.epn{font-size:16px}.yr{font-size:36px}}
+@media(max-width:700px){body[data-r=home] #pet{height:min(260px,34svh)}}
+@media(max-width:380px),(max-height:700px){body[data-r=home] #pet{height:min(230px,30svh)}}
+
+/* round 2: tighter header-to-body and figure-to-text gaps (-60%) */
+@keyframes inD{to{opacity:.95;transform:rotate(6deg)}}
+@media(min-width:761px){
+.head{justify-content:flex-start;min-height:0;padding-top:128px;overflow:visible}
+.art{top:110px;transform:rotate(6deg);animation:inD .4s .1s var(--ease) forwards,rock 6s var(--ease) infinite}
+.head:hover .art{transform:rotate(6deg) translateX(3px)}
+body[data-r=podcast] .art{right:calc(9vw + 8px)}body[data-r=writing] .art{right:calc(9vw + 10px)}body[data-r=music] .art{right:calc(9vw + 51px)}
+.about{align-items:start;padding-top:126px}
+.soon{justify-content:flex-start;padding-top:135px}
+.nf{justify-content:flex-start;min-height:0;padding-top:114px}}
+@media(max-width:760px){
+.head{padding-top:80px}.art,body[data-r=music] .art{margin-bottom:4px}
+.about{padding-top:77px}
+.soon{justify-content:flex-start;padding-top:107px}
+.nf{justify-content:flex-start;min-height:0;padding-top:98px}}
+@media(max-width:700px){body[data-r=home] #hero{padding-top:77px}}
+@media(prefers-reduced-motion:reduce){.art{opacity:.95}}
 </style></head><body data-r="home">
 <header id="hd"><div class="l"><a href="/" data-link aria-label="Home"><span id="mk"><svg id="mark" viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text fill="currentColor" font-size="10.5" font-weight="500" letter-spacing="3.2"><textPath href="#c">SUBTLE URBAN SEX APPEAL ·</textPath></text></svg></span></a><span class="cap tag">[the greatest show on earth]</span></div>
 <button id="tog" class="cap" aria-expanded="false">Menu</button>
@@ -161,7 +231,7 @@ const SPOTIFY='https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz',APPLE='http
 const clean=s=>String(s||'').replace(/[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\uFE0F\u200D\u20E3]/gu,'').replace(/\s{2,}/g,' ').trim();
 const esc=s=>clean(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fd=d=>new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-const head=(w,img,lab)=>`<section class="head"><img class="art" src="/img/${img}" alt=""><h1 class="word">${w}</h1>${lab?`<p class="cap" style="margin-top:26px;opacity:.75">${lab}</p>`:''}</section>`;
+const head=(w,img,lab)=>`<section class="head"><img class="art" src="/img/${img}" alt="${PETN[img.replace(/-cream\.png$/,'')]||'SUSA'} figure, SUSA"><h1 class="word">${w}</h1>${lab?`<p class="cap" style="margin-top:26px;opacity:.75">${lab}</p>`:''}</section>`;
 const tsl=t=>t.toLowerCase().replace(/&/g,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const tagName=s=>{for(const e of D.episodes)for(const t of e.tags||[])if(tsl(t)===s)return t;return ''};
 const epLi=(e,i)=>`<li><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play"><i class="ic pl"></i></button><a class="t" data-link href="/podcast/${e.slug}">${esc(e.title)}</a><span class="cap d">${fd(e.date)}</span></li>`;
@@ -169,15 +239,16 @@ const TC={};D.episodes.forEach(e=>(e.tags||[]).forEach(t=>{const k=tsl(t);TC[k]=
 let NOTES=null,NOTESP=null;const notesLoad=()=>NOTESP||(NOTESP=fetch('/episodes.json').then(r=>r.json()).then(j=>NOTES=j).catch(()=>NOTES={}));
 function fillNote(){const p=document.getElementById('epn');if(!p)return;const n=NOTES&&NOTES[p.dataset.s];if(n){p.textContent=clean(n.note);p.classList.remove('ld')}else if(NOTES)p.remove()}
 const V={
-home:()=>`<section id="hero"><svg id="arch" viewBox="0 0 400 220"><defs><path id="a" d="M40,200 A160,160 0 0,1 360,200"/></defs><text fill="#F4ECDC" font-size="22" font-weight="500" letter-spacing="6" text-anchor="middle"><textPath href="#a" startOffset="50%">SUBTLE URBAN SEX APPEAL</textPath></text></svg><img id="pet" alt="" src="/img/${PETS[petI]}-cream.png"></section>`,
+home:()=>`<section id="hero"><svg id="arch" viewBox="0 0 400 220"><defs><path id="a" d="M40,200 A160,160 0 0,1 360,200"/></defs><text fill="#F4ECDC" font-size="22" font-weight="500" letter-spacing="6" text-anchor="middle"><textPath href="#a" startOffset="50%">SUBTLE URBAN SEX APPEAL</textPath></text></svg><img id="pet" alt="${PETN[PETS[petI]]} figure, SUSA" src="/img/${PETS[petI]}-cream.png"></section>`,
 writing:()=>head('writing','lamb-bow-cream.png','[essays / substack]')+`<div class="wrap"><ul class="list">${D.writing.map(w=>`<li><a class="t" href="${w.url}" target="_blank" rel="noopener">${esc(w.title)}${w.sub?`<small>${esc(w.sub)}</small>`:''}</a><span class="cap d">${fd(w.date)}</span></li>`).join('')}</ul><p class="note cap"><a class="u" href="https://saakamalik.substack.com/" target="_blank" rel="noopener">Subscribe on Substack &rarr;&#xFE0E;</a></p></div>`,
 podcast:()=>head('podcast','satyr-cream.png')+`<div class="wrap"><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;&#xFE0E;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple<span class="dsk"> Podcasts</span> &rarr;&#xFE0E;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;&#xFE0E;</a></div><ul class="list">${D.episodes.slice(0,12).map((e,i)=>epLi(e,i)).join('')}</ul>${D.episodes.length>12?`<p class="note cap"><a class="u" data-link href="/podcast/archive">all ${D.episodes.length} episodes &rarr;&#xFE0E;</a></p>`:''}</div>`,
 archive:()=>{let y='',h='';D.episodes.forEach((e,i)=>{const yy=e.date.slice(0,4);if(yy!==y){h+=(y?'</ul>':'')+`<p class="cap yr">[${yy}]</p><ul class="list">`;y=yy}h+=epLi(e,i)});return head('podcast','satyr-cream.png')+`<div class="wrap"><p class="cap"><a class="u" data-link href="/podcast">&larr;&#xFE0E; podcast</a></p><h2 class="ept">All episodes</h2>${h}</ul></div>`},
-ep:s=>{const i=D.episodes.findIndex(e=>e.slug===s),e=D.episodes[i];return head('podcast','satyr-cream.png')+`<article class="wrap epg"><p class="cap"><a class="u" data-link href="/podcast">&larr;&#xFE0E; all episodes</a></p><h2 class="ept">${esc(e.title)}</h2><div class="epm"><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play"><i class="ic pl"></i></button><span class="cap d">${fd(e.date)}</span></div><p class="epn ld" id="epn" data-s="${e.slug}">&nbsp;</p><ul class="tags cap">${(e.tags||[]).map(t=>TC[tsl(t)]>1?`<li><a class="u" data-link href="/podcast/tag/${tsl(t)}">${esc(t)}</a></li>`:`<li>${esc(t)}</li>`).join('')}</ul><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;&#xFE0E;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple<span class="dsk"> Podcasts</span> &rarr;&#xFE0E;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;&#xFE0E;</a></div></article>`},
+ep:s=>{const i=D.episodes.findIndex(e=>e.slug===s),e=D.episodes[i];return head('podcast','satyr-cream.png')+`<article class="wrap epg"><p class="cap"><a class="u" data-link href="/podcast">&larr;&#xFE0E; all episodes</a></p><span class="epno" aria-hidden="true">${String(D.episodes.length-i).padStart(3,'0')}</span><h2 class="ept">${esc(e.title)}</h2><div class="epm"><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play"><i class="ic pl"></i></button><span class="cap d">${fd(e.date)}</span></div><p class="epn ld" id="epn" data-s="${e.slug}">&nbsp;</p><ul class="tags cap">${(e.tags||[]).map(t=>TC[tsl(t)]>1?`<li><a class="u" data-link href="/podcast/tag/${tsl(t)}">${esc(t)}</a></li>`:`<li>${esc(t)}</li>`).join('')}</ul><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;&#xFE0E;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple<span class="dsk"> Podcasts</span> &rarr;&#xFE0E;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;&#xFE0E;</a></div></article>`},
 tag:s=>{const t=tagName(s);return head('podcast','satyr-cream.png')+`<div class="wrap"><p class="cap"><a class="u" data-link href="/podcast">&larr;&#xFE0E; all episodes</a></p><h2 class="ept">${esc(t)}</h2><ul class="list">${D.episodes.map((e,i)=>(e.tags||[]).some(x=>tsl(x)===s)?epLi(e,i):'').join('')}</ul></div>`},
 music:()=>head('music','cow-cream.png','[malik saaka (fka sxylk)]')+`<div class="wrap"><div class="links cap"><a class="u" href="https://soundcloud.com/sxylks" target="_blank" rel="noopener">SoundCloud &rarr;&#xFE0E;</a><a class="u" href="https://www.mixcloud.com/invisibles/" target="_blank" rel="noopener">Mixcloud &rarr;&#xFE0E;</a></div><ul class="list scroll5">${D.tracks.map((t,i)=>`<li><button class="pb" data-tr="${i}" data-key="tr:${t.url}" aria-label="Play"><i class="ic pl"></i></button><span class="t">${esc(t.title)}</span><span class="cap d">${mm(t.dur)}</span></li>`).join('')}</ul>${D.tracks.length>5?'<p class="cap more">scroll &darr;&#xFE0E;</p>':''}<p class="cap" style="opacity:.75;margin:60px 0 18px">[mixes / mixcloud]</p><ul class="list${D.mixes.length>5?' scroll5':''}">${D.mixes.map(m=>`<li><a class="t" href="https://www.mixcloud.com${m.key}" target="_blank" rel="noopener">${esc(m.name)} <span class="cap" style="font-size:12px;opacity:.7">&nearr;&#xFE0E;</span></a>${m.dur?`<span class="cap d">${mm(m.dur)}</span>`:''}</li>`).join('')}</ul></div>`,
 shopGrid:()=>`<div id="shopgrid" class="grid"><p class="cap note" style="grid-column:1/-1">[loading]</p></div>`,
-shop:()=>shopLocked()?`<section class="soon"><svg class="sarch" viewBox="0 0 400 150" aria-label="Coming soon"><defs><path id="sa" d="M50,140 A150,120 0 0,1 350,140"/></defs><text fill="currentColor" font-size="24" font-weight="500" letter-spacing="9" text-anchor="middle"><textPath href="#sa" startOffset="50%">COMING SOON</textPath></text></svg><img class="slamb" src="/img/lamb-spiked-red.png" alt=""><p class="cap" style="opacity:.8;margin-top:22px">[merch is in the oven]</p><form id="gate" class="cap" autocomplete="off"><input id="gpw" type="password" aria-label="Password" placeholder="password"><button type="submit" aria-label="Enter">&rarr;&#xFE0E;</button></form><p id="gmsg" class="cap" aria-live="polite"></p></section>`:head('shop','lamb-spiked-red.png')+V.shopGrid(),
+shop:()=>shopLocked()?`<section class="soon"><svg class="sarch" viewBox="0 0 400 150" aria-label="Coming soon"><defs><path id="sa" d="M50,140 A150,120 0 0,1 350,140"/></defs><text fill="currentColor" font-size="24" font-weight="500" letter-spacing="9" text-anchor="middle"><textPath href="#sa" startOffset="50%">COMING SOON</textPath></text></svg><img class="slamb" src="/img/lamb-spiked-red.png" alt="Spiked lamb figure, SUSA"><p class="cap" style="opacity:.8;margin-top:22px">[merch is in the oven]</p><form id="gate" class="cap" autocomplete="off"><input id="gpw" type="password" aria-label="Password" placeholder="password"><button type="submit" aria-label="Enter">&rarr;&#xFE0E;</button></form><p id="gmsg" class="cap" aria-live="polite"></p></section>`:head('shop','lamb-spiked-red.png')+V.shopGrid(),
+nf:()=>`<section class="nf"><img src="/img/${PETS[petI]}-cream.png" alt="${PETN[PETS[petI]]} figure, SUSA"><h1 class="word">lost</h1><p class="cap">[this page isn't here]</p><p class="cap"><a class="u" data-link href="/">back home &rarr;&#xFE0E;</a></p></section>`,
 about:()=>`<section class="about"><div class="flip" id="flip" aria-hidden="true"></div><div class="bio"><h1 class="word" style="font-size:clamp(64px,9vw,140px)">about</h1><p class="biot">Malik Saaka is a writer, podcast host and music producer based in Los Angeles, working where culture, sound and business meet.</p>
 <p class="biot">Formerly known as the DJ and producer SXYLK, he created and hosts SUSA (Subtle Urban Sex Appeal), a podcast and Substack that treats desire, identity and pop culture with the rigor of philosophy. His essays dissect the hidden logic of culture, sexuality, race, astrology and tech, naming what most people feel but never say out loud.</p>
 <p class="biot">He has collaborated with <b>Mugler</b>, <b>Boiler Room</b>, <b>Design Miami</b>, <b>Red Bull Music</b>, <b>iHeartRadio</b>, <b>Essence</b> and <b>Basic.Space</b>. His music has been featured in <b>The FADER</b> and <b>Pitchfork</b>, and his advocacy work has been covered by <b>The New York Times</b>, <b>Bloomberg</b>, <b>NBC News</b>, <b>Quartz</b>, <b>TheBody</b>, <b>Out</b>, <b>PAPER</b>, <b>them.</b>, <b>PinkNews</b>, <b>Time Out New York</b>, <b>Eater NY</b> and <b>FOX 5 New York</b>.</p>
@@ -210,8 +281,9 @@ async function cartAdd(variantId){const lines=[{merchandiseId:variantId,quantity
 async function cartRemove(lineId){const d=await sfq(`mutation($id:ID!,$ids:[ID!]!){cartLinesRemove(cartId:$id,lineIds:$ids){cart{${CART_F}}}}`,{id:CART.id,ids:[lineId]});CART=d.cartLinesRemove.cart;cartRender()}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-add]');if(a){const v=a.parentNode.querySelector('select,input').value;a.disabled=true;cartAdd(v).catch(err=>console.warn(err.message)).finally(()=>a.disabled=false)}
  const r=e.target.closest('[data-rm]');if(r)cartRemove(r.dataset.rm);if(e.target.closest('#cartbtn'))$('#cart').classList.add('open');if(e.target.closest('#cartx'))$('#cart').classList.remove('open')});
+const PETN={'lamb-bow':'Lamb with a bow','satyr':'Satyr','lamb-spiked':'Spiked lamb','ballgag':'Ball gag','bear':'Bear','poodle':'Poodle','cow':'Cow','pig':'Pig','fluffcat':'Fluffy cat','cat':'Cat','bunny':'Bunny'};
 const PETS=['lamb-bow','satyr','lamb-spiked','ballgag','bear','poodle','cow','pig','fluffcat','cat','bunny'];let petI=Math.floor(Math.random()*PETS.length);
-document.getElementById('mark').addEventListener('click',()=>{petI=(petI+1)%PETS.length;const p=document.getElementById('pet');if(p){p.classList.remove('pop');void p.offsetWidth;p.src='/img/'+PETS[petI]+'-cream.png';p.classList.add('pop')}});
+document.getElementById('mark').addEventListener('click',()=>{petI=(petI+1)%PETS.length;const p=document.getElementById('pet');if(p){p.classList.remove('pop');void p.offsetWidth;p.src='/img/'+PETS[petI]+'-cream.png';p.alt=PETN[PETS[petI]]+' figure, SUSA';p.classList.add('pop')}});
 // About photo flipper
 let flipT=null;
 function flipStart(){clearTimeout(flipT);const el=document.getElementById('flip');if(!el)return;
@@ -225,7 +297,7 @@ function flipStart(){clearTimeout(flipT);const el=document.getElementById('flip'
 // GoatCounter (loads only when a code is set in config.js)
 if(CFG.goatcounter){window.goatcounter={no_onload:true};const g=document.createElement('script');g.async=true;g.src='//gc.zgo.at/count.js';g.dataset.goatcounter=`https://${CFG.goatcounter}.goatcounter.com/count`;g.onload=()=>gcCount();document.head.appendChild(g)}
 function gcCount(){if(window.goatcounter&&goatcounter.count)goatcounter.count({path:location.pathname+location.hash,title:document.title})}
-const META={home:['Subtle Urban Sex Appeal','Writing, podcast and music from Malik Saaka.'],writing:['Writing / SUSA','Essays by Malik Saaka.'],podcast:['Podcast / SUSA','Subtle Urban Sex Appeal, the podcast.'],music:['Music / SUSA','Music by Malik Saaka (fka SXYLK).'],shop:['Shop / SUSA','SUSA merch.'],about:['About / SUSA','About Malik Saaka and SUSA.']};
+const META={nf:['Not found / SUSA','This page is not here.'],home:['Subtle Urban Sex Appeal','Writing, podcast and music from Malik Saaka.'],writing:['Writing / SUSA','Essays by Malik Saaka.'],podcast:['Podcast / SUSA','Subtle Urban Sex Appeal, the podcast.'],music:['Music / SUSA','Music by Malik Saaka (fka SXYLK).'],shop:['Shop / SUSA','SUSA merch.'],about:['About / SUSA','About Malik Saaka and SUSA.']};
 const SITE='https://subtleurbansexappeal.com',SERIES={'@type':'PodcastSeries','name':'Subtle Urban Sex Appeal','url':SITE+'/podcast','author':{'@type':'Person','name':'Malik Saaka'},'sameAs':[SPOTIFY,APPLE]};
 function metaFor(r){if(META[r])return META[r];const m=r.match(/^podcast\/tag\/(.+)$/);if(m){const t=tagName(m[1]),n=D.episodes.filter(e=>(e.tags||[]).some(x=>tsl(x)===m[1])).length;return [t+' / SUSA Podcast',`Subtle Urban Sex Appeal episodes about ${t}: ${n} episode${n>1?'s':''} from Malik Saaka's podcast, with notes and audio.`]}
  if(r==='podcast/archive')return ['All episodes / SUSA Podcast',`Every episode of Subtle Urban Sex Appeal, the podcast from Malik Saaka: all ${D.episodes.length} episodes with notes and audio, newest first.`];const e=epOf(r),n=NOTES&&NOTES[e.slug];return [clean(e.title)+' / SUSA Podcast',n?n.desc:`${clean(e.title)}, an episode of Subtle Urban Sex Appeal, the podcast from Malik Saaka.`]}
@@ -241,9 +313,9 @@ const nb=d=>ORDER[(ORDER.indexOf(CUR)+d+ORDER.length)%ORDER.length];
 const RM=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;let navDir=0,busy=false;
 function step(d){if(busy)return;navDir=d;go(PATH(nb(d)))}
 const HASH=!/^https?:/.test(location.protocol);
-function route(){const dir=navDir;navDir=0;let r=(HASH?location.hash.slice(1):location.pathname).replace(/^\/+|\/+$/g,'').replace(/\.html$/,'')||'home';if(r==='index')r='home';const pr=r.match(/^podcast\/(?:tag\/)?([^/]+)$/);if(pr&&r!=='podcast/archive'&&!(epOf(r)||(/^podcast\/tag\//.test(r)&&tagName(pr[1]))))r='podcast';if(!pr&&!V[r])r='home';
- const app=$('#app');if(dir&&!RM()&&app.innerHTML){busy=true;app.className=dir>0?'out-l':'out-r';setTimeout(()=>{busy=false;render(r,dir)},300);return}render(r,0)}
-function render(r,dir){const app=$('#app');const sub=r.match(/^podcast\/(tag\/)?(.+)$/);CUR=sub?'podcast':r;
+function route(){const dir=navDir;navDir=0;let r=(HASH?location.hash.slice(1):location.pathname).replace(/^\/+|\/+$/g,'').replace(/\.html$/,'')||'home';if(r==='index')r='home';const pr=r.match(/^podcast\/(?:tag\/)?([^/]+)$/);if(pr&&r!=='podcast/archive'&&!(epOf(r)||(/^podcast\/tag\//.test(r)&&tagName(pr[1]))))r='nf';if(!pr&&(!V[r]||['ep','tag','archive','shopGrid'].includes(r)))r='nf';
+ const app=$('#app');if(!RM()&&app.innerHTML){busy=true;app.className='out-l';setTimeout(()=>{busy=false;render(r,1)},240);return}render(r,0)}
+function render(r,dir){const app=$('#app');const sub=r==='nf'?null:r.match(/^podcast\/(tag\/)?(.+)$/);CUR=sub?'podcast':r;
  document.body.dataset.r=CUR;CURR=r;app.innerHTML=sub?(sub[1]?V.tag(sub[2]):sub[2]==='archive'?V.archive():V.ep(sub[2])):V[r]();if(sub&&!sub[1]&&sub[2]!=='archive'){if(NOTES)fillNote();else notesLoad().then(()=>{if(CURR===r){fillNote();setMeta(r)}})}app.className=dir?(dir>0?'in-l':'in-r'):'';$('#sl').innerHTML='&larr;&#xFE0E; '+nb(-1);$('#sr').innerHTML=nb(1)+' &rarr;&#xFE0E;';scroll5();
  document.querySelectorAll('#nav a[data-link]').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='/'+CUR));
  $('#hd').classList.remove('open');$('#tog').textContent='Menu';scrollTo(0,0);if(typeof ui==='function')ui();if(document.getElementById('shopgrid'))shopLoad();setMeta(r);flipStart();gcCount()}
