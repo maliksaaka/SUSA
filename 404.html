@@ -211,6 +211,22 @@ body[data-r=podcast] .art{right:calc(9vw + 8px)}body[data-r=writing] .art{right:
 .nf{justify-content:flex-start;min-height:0;padding-top:98px}}
 @media(max-width:700px){body[data-r=home] #hero{padding-top:77px}}
 @media(prefers-reduced-motion:reduce){.art{opacity:.95}}
+
+/* round 3 */
+@keyframes drift{to{background-position:220px 440px}}
+body::after{animation:drift 90s linear infinite}
+.epbar{display:block;height:1px;max-width:min(560px,100%);background:rgba(244,236,220,.18);margin:var(--s2) 0 var(--s4);position:relative}
+#epfill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);transition:width .3s linear}
+.epg .ept{margin-top:0}
+.pq{font-size:clamp(24px,2.6vw,36px);line-height:1.25;font-weight:500;letter-spacing:-.01em;max-width:28ch;margin:0 0 var(--s4);padding-left:var(--s3);border-left:1px solid var(--gold)}
+.snl{opacity:.6;margin-bottom:var(--s2)}
+#hv{position:fixed;left:0;top:0;z-index:35;height:96px;pointer-events:none;opacity:0;transition:opacity .2s var(--ease);filter:drop-shadow(2px 0 0 rgba(255,0,60,.45)) drop-shadow(-2px 1px 0 rgba(0,170,255,.4))}
+#hv.on{opacity:.95}
+.list li{transition:opacity .3s var(--ease)}
+@media(hover:none){.list:hover li{opacity:1}}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .4s var(--ease),transform .4s var(--ease)}.rv.in{opacity:1;transform:none}.epno.rv.in{opacity:.18}
+@media(max-width:760px){.epbar{margin:var(--s1) 0 var(--s3)}.pq{font-size:22px;padding-left:var(--s2)}}
+@media(prefers-reduced-motion:reduce){body::after{animation:none}.rv{opacity:1;transform:none}#hv{display:none}}
 </style></head><body data-r="home">
 <header id="hd"><div class="l"><a href="/" data-link aria-label="Home"><span id="mk"><svg id="mark" viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text fill="currentColor" font-size="10.5" font-weight="500" letter-spacing="3.2"><textPath href="#c">SUBTLE URBAN SEX APPEAL ·</textPath></text></svg></span></a><span class="cap tag">[the greatest show on earth]</span></div>
 <button id="tog" class="cap" aria-expanded="false">Menu</button>
@@ -237,13 +253,15 @@ const tagName=s=>{for(const e of D.episodes)for(const t of e.tags||[])if(tsl(t)=
 const epLi=(e,i)=>`<li><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play"><i class="ic pl"></i></button><a class="t" data-link href="/podcast/${e.slug}">${esc(e.title)}</a><span class="cap d">${fd(e.date)}</span></li>`;
 const TC={};D.episodes.forEach(e=>(e.tags||[]).forEach(t=>{const k=tsl(t);TC[k]=(TC[k]||0)+1}));
 let NOTES=null,NOTESP=null;const notesLoad=()=>NOTESP||(NOTESP=fetch('/episodes.json').then(r=>r.json()).then(j=>NOTES=j).catch(()=>NOTES={}));
-function fillNote(){const p=document.getElementById('epn');if(!p)return;const n=NOTES&&NOTES[p.dataset.s];if(n){p.textContent=clean(n.note);p.classList.remove('ld')}else if(NOTES)p.remove()}
+function fillNote(){const p=document.getElementById('epn');if(!p)return;const n=NOTES&&NOTES[p.dataset.s];if(n){p.textContent=clean(n.note);p.classList.remove('ld');const q=pullQ(clean(n.note))||pullQ(clean(n.desc)),b=document.getElementById('pq');if(q&&b){b.textContent=q;b.hidden=false}}else if(NOTES)p.remove()}
+// pull quote: an exact sentence lifted from the note (longest full sentence of 6+ words, not the first)
+function pullQ(t){const ss=t.match(/[^.!?]+(?:\.(?=\S)[^.!?]*)*[.!?]+(?=\s+[A-Z"']|$)/g)||[];const c=ss.map(x=>x.trim()).filter((x,k)=>k>0&&x.split(/\s+/).length>=6&&x.length<=200&&t.includes(x));return c.sort((a,b)=>b.length-a.length)[0]||''}
 const V={
 home:()=>`<section id="hero"><svg id="arch" viewBox="0 0 400 220"><defs><path id="a" d="M40,200 A160,160 0 0,1 360,200"/></defs><text fill="#F4ECDC" font-size="22" font-weight="500" letter-spacing="6" text-anchor="middle"><textPath href="#a" startOffset="50%">SUBTLE URBAN SEX APPEAL</textPath></text></svg><img id="pet" alt="${PETN[PETS[petI]]} figure, SUSA" src="/img/${PETS[petI]}-cream.png"></section>`,
 writing:()=>head('writing','lamb-bow-cream.png','[essays / substack]')+`<div class="wrap"><ul class="list">${D.writing.map(w=>`<li><a class="t" href="${w.url}" target="_blank" rel="noopener">${esc(w.title)}${w.sub?`<small>${esc(w.sub)}</small>`:''}</a><span class="cap d">${fd(w.date)}</span></li>`).join('')}</ul><p class="note cap"><a class="u" href="https://saakamalik.substack.com/" target="_blank" rel="noopener">Subscribe on Substack &rarr;&#xFE0E;</a></p></div>`,
 podcast:()=>head('podcast','satyr-cream.png')+`<div class="wrap"><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;&#xFE0E;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple<span class="dsk"> Podcasts</span> &rarr;&#xFE0E;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;&#xFE0E;</a></div><ul class="list">${D.episodes.slice(0,12).map((e,i)=>epLi(e,i)).join('')}</ul>${D.episodes.length>12?`<p class="note cap"><a class="u" data-link href="/podcast/archive">all ${D.episodes.length} episodes &rarr;&#xFE0E;</a></p>`:''}</div>`,
 archive:()=>{let y='',h='';D.episodes.forEach((e,i)=>{const yy=e.date.slice(0,4);if(yy!==y){h+=(y?'</ul>':'')+`<p class="cap yr">[${yy}]</p><ul class="list">`;y=yy}h+=epLi(e,i)});return head('podcast','satyr-cream.png')+`<div class="wrap"><p class="cap"><a class="u" data-link href="/podcast">&larr;&#xFE0E; podcast</a></p><h2 class="ept">All episodes</h2>${h}</ul></div>`},
-ep:s=>{const i=D.episodes.findIndex(e=>e.slug===s),e=D.episodes[i];return head('podcast','satyr-cream.png')+`<article class="wrap epg"><p class="cap"><a class="u" data-link href="/podcast">&larr;&#xFE0E; all episodes</a></p><span class="epno" aria-hidden="true">${String(D.episodes.length-i).padStart(3,'0')}</span><h2 class="ept">${esc(e.title)}</h2><div class="epm"><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play"><i class="ic pl"></i></button><span class="cap d">${fd(e.date)}</span></div><p class="epn ld" id="epn" data-s="${e.slug}">&nbsp;</p><ul class="tags cap">${(e.tags||[]).map(t=>TC[tsl(t)]>1?`<li><a class="u" data-link href="/podcast/tag/${tsl(t)}">${esc(t)}</a></li>`:`<li>${esc(t)}</li>`).join('')}</ul><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;&#xFE0E;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple<span class="dsk"> Podcasts</span> &rarr;&#xFE0E;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;&#xFE0E;</a></div></article>`},
+ep:s=>{const i=D.episodes.findIndex(e=>e.slug===s),e=D.episodes[i];return head('podcast','satyr-cream.png')+`<article class="wrap epg"><p class="cap"><a class="u" data-link href="/podcast">&larr;&#xFE0E; all episodes</a></p><span class="epno" aria-hidden="true">${String(D.episodes.length-i).padStart(3,'0')}</span><span class="epbar" aria-hidden="true"><span id="epfill" data-key="ep:${e.mp3}"></span></span><h2 class="ept">${esc(e.title)}</h2><div class="epm"><button class="pb" data-ep="${i}" data-key="ep:${e.mp3}" aria-label="Play"><i class="ic pl"></i></button><span class="cap d">${fd(e.date)}</span></div><blockquote class="pq rv" id="pq" hidden></blockquote><p class="cap snl rv">[show notes]</p><p class="epn ld rv" id="epn" data-s="${e.slug}">&nbsp;</p><ul class="tags cap">${(e.tags||[]).map(t=>TC[tsl(t)]>1?`<li><a class="u" data-link href="/podcast/tag/${tsl(t)}">${esc(t)}</a></li>`:`<li>${esc(t)}</li>`).join('')}</ul><div class="links cap"><a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Spotify &rarr;&#xFE0E;</a><a class="u" href="${APPLE}" target="_blank" rel="noopener">Apple<span class="dsk"> Podcasts</span> &rarr;&#xFE0E;</a><a class="u" href="${PATREON}" target="_blank" rel="noopener">Patreon &rarr;&#xFE0E;</a></div></article>`},
 tag:s=>{const t=tagName(s);return head('podcast','satyr-cream.png')+`<div class="wrap"><p class="cap"><a class="u" data-link href="/podcast">&larr;&#xFE0E; all episodes</a></p><h2 class="ept">${esc(t)}</h2><ul class="list">${D.episodes.map((e,i)=>(e.tags||[]).some(x=>tsl(x)===s)?epLi(e,i):'').join('')}</ul></div>`},
 music:()=>head('music','cow-cream.png','[malik saaka (fka sxylk)]')+`<div class="wrap"><div class="links cap"><a class="u" href="https://soundcloud.com/sxylks" target="_blank" rel="noopener">SoundCloud &rarr;&#xFE0E;</a><a class="u" href="https://www.mixcloud.com/invisibles/" target="_blank" rel="noopener">Mixcloud &rarr;&#xFE0E;</a></div><ul class="list scroll5">${D.tracks.map((t,i)=>`<li><button class="pb" data-tr="${i}" data-key="tr:${t.url}" aria-label="Play"><i class="ic pl"></i></button><span class="t">${esc(t.title)}</span><span class="cap d">${mm(t.dur)}</span></li>`).join('')}</ul>${D.tracks.length>5?'<p class="cap more">scroll &darr;&#xFE0E;</p>':''}<p class="cap" style="opacity:.75;margin:60px 0 18px">[mixes / mixcloud]</p><ul class="list${D.mixes.length>5?' scroll5':''}">${D.mixes.map(m=>`<li><a class="t" href="https://www.mixcloud.com${m.key}" target="_blank" rel="noopener">${esc(m.name)} <span class="cap" style="font-size:12px;opacity:.7">&nearr;&#xFE0E;</span></a>${m.dur?`<span class="cap d">${mm(m.dur)}</span>`:''}</li>`).join('')}</ul></div>`,
 shopGrid:()=>`<div id="shopgrid" class="grid"><p class="cap note" style="grid-column:1/-1">[loading]</p></div>`,
@@ -318,7 +336,7 @@ function route(){const dir=navDir;navDir=0;let r=(HASH?location.hash.slice(1):lo
 function render(r,dir){const app=$('#app');const sub=r==='nf'?null:r.match(/^podcast\/(tag\/)?(.+)$/);CUR=sub?'podcast':r;
  document.body.dataset.r=CUR;CURR=r;app.innerHTML=sub?(sub[1]?V.tag(sub[2]):sub[2]==='archive'?V.archive():V.ep(sub[2])):V[r]();if(sub&&!sub[1]&&sub[2]!=='archive'){if(NOTES)fillNote();else notesLoad().then(()=>{if(CURR===r){fillNote();setMeta(r)}})}app.className=dir?(dir>0?'in-l':'in-r'):'';$('#sl').innerHTML='&larr;&#xFE0E; '+nb(-1);$('#sr').innerHTML=nb(1)+' &rarr;&#xFE0E;';scroll5();
  document.querySelectorAll('#nav a[data-link]').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='/'+CUR));
- $('#hd').classList.remove('open');$('#tog').textContent='Menu';scrollTo(0,0);if(typeof ui==='function')ui();if(document.getElementById('shopgrid'))shopLoad();setMeta(r);flipStart();gcCount()}
+ $('#hd').classList.remove('open');$('#tog').textContent='Menu';scrollTo(0,0);if(typeof ui==='function')ui();if(document.getElementById('shopgrid'))shopLoad();setMeta(r);flipStart();gcCount();if(hv)hv.classList.remove('on');reveal()}
 function go(p){if(HASH)location.hash=p;else{if(location.pathname===p)return;history.pushState({},'',p);route()}}
 $('#sl').onclick=()=>step(-1);$('#sr').onclick=()=>step(1);
 addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('input,select,textarea,[contenteditable]'))return;if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1)});
@@ -334,7 +352,7 @@ const m=$('#mk');addEventListener('scroll',()=>m.style.transform=`rotate(${scrol
 // unified bottom player: one source at a time (podcast MP3 via <audio>, SoundCloud via hidden widget)
 const mm=s=>isFinite(s)&&s>=0?Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'):'0:00';
 const P={kind:'mp3',t:0,d:0,playing:false};
-function ui(){$('#fill').style.width=(P.d?P.t/P.d*100:0)+'%';$('#tm').textContent=mm(P.t)+' / '+mm(P.d);$('#pp').innerHTML=P.playing?'<i class="ic pa"></i>':'<i class="ic pl"></i>';
+function ui(){const ef=document.getElementById('epfill');if(ef)ef.style.width=(P.key===ef.dataset.key&&P.d?P.t/P.d*100:0)+'%';$('#fill').style.width=(P.d?P.t/P.d*100:0)+'%';$('#tm').textContent=mm(P.t)+' / '+mm(P.d);$('#pp').innerHTML=P.playing?'<i class="ic pa"></i>':'<i class="ic pl"></i>';
  document.querySelectorAll('[data-ep],[data-tr]').forEach(b=>b.innerHTML=(P.playing&&b.dataset.key===P.key)?'<i class="ic pa"></i>':'<i class="ic pl"></i>')}
 const scf=document.createElement('iframe');scf.id='scw';scf.allow='autoplay';scf.title='SoundCloud';scf.setAttribute('aria-hidden','true');
 scf.style.cssText='position:absolute;width:1px;height:1px;left:-9999px;opacity:0';
@@ -365,5 +383,16 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-tr]');if(!
 if(D.episodes.length){load(D.episodes[Math.floor(Math.random()*Math.min(3,D.episodes.length))]);
  au.play().catch(()=>{const u=ev=>{['click','touchend','keydown'].forEach(t=>removeEventListener(t,u,true));if(ev.target.closest&&ev.target.closest('#pp,[data-ep],[data-tr]'))return;if(P.kind==='mp3')au.play().catch(()=>{})};['click','touchend','keydown'].forEach(t=>addEventListener(t,u,true))})}
 else{$('#pt').innerHTML=`<a class="u" href="${SPOTIFY}" target="_blank" rel="noopener">Listen on Spotify &rarr;&#xFE0E;</a>`;$('#pp').style.display='none'}
+
+// desktop row hover: the episode's single figure as a small still near the cursor (lazy, image only)
+const HOV=matchMedia('(hover:hover) and (pointer:fine)');let hv=null;
+const figOf=i=>PETS[(D.episodes.length-i)%PETS.length];
+document.addEventListener('mouseover',e=>{if(!HOV.matches)return;const b=e.target.closest('.list li');const k=b&&b.querySelector('[data-ep]');
+ if(!k){if(hv)hv.classList.remove('on');return}if(!hv){hv=document.createElement('img');hv.id='hv';hv.alt='';hv.decoding='async';document.body.appendChild(hv)}
+ const f='/img/'+figOf(+k.dataset.ep)+'-cream.png';if(!hv.src.endsWith(f))hv.src=f;hv.classList.add('on')});
+document.addEventListener('mousemove',e=>{if(hv&&hv.classList.contains('on'))hv.style.transform=`translate(${e.clientX+24}px,${e.clientY-48}px)`},{passive:true});
+// scroll reveal
+const IO='IntersectionObserver'in window&&!RM()?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');IO.unobserve(x.target)}}),{rootMargin:'0px 0px -8% 0px'}):null;
+function reveal(){document.querySelectorAll('#app .wrap>*,#app .epg>*,#app .bio>*,#app .rv').forEach(el=>{if(!IO){el.classList.add('in');return}el.classList.add('rv');IO.observe(el)})}
 route();cartFetch();
 </script></body></html>
