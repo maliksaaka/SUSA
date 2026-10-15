@@ -6,7 +6,7 @@ export async function mount(box,api){
  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,mob=matchMedia('(pointer:coarse)').matches;
  const cv=document.createElement('canvas');cv.className='ip3d';cv.tabIndex=0;cv.setAttribute('aria-label','Song browser');
  const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true,powerPreference:'high-performance'});
- R.setPixelRatio(Math.min(devicePixelRatio,mob?1.5:1.75));R.outputColorSpace=THREE.SRGBColorSpace;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;
+ R.setPixelRatio(Math.min(devicePixelRatio,2));R.outputColorSpace=THREE.SRGBColorSpace;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;
  R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
  const S=new THREE.Scene(),pm=new THREE.PMREMGenerator(R);S.environment=pm.fromScene(new RoomEnvironment(),.035).texture;
  const cam=new THREE.PerspectiveCamera(30,1,.1,20);cam.position.set(0,0,2.55);
@@ -27,13 +27,13 @@ export async function mount(box,api){
  const front=new THREE.Mesh(fg,white);front.position.z=D/2-.012;front.castShadow=front.receiveShadow=true;tilt.add(front);const FZ=D/2+.0085;
  // screen: bezel, live LCD canvas, glass
  const sw=.5,sh=.355,sy=.255;const bez=new THREE.Mesh(new THREE.ShapeGeometry(rr(sw+.03,sh+.03,.018)),new THREE.MeshStandardMaterial({color:0x0b0c0d,roughness:.4}));bez.position.set(0,sy,FZ+.0004);tilt.add(bez);
- const lcd=document.createElement('canvas');lcd.width=640;lcd.height=Math.round(640*sh/sw);const lcdT=new THREE.CanvasTexture(lcd);lcdT.colorSpace=THREE.SRGBColorSpace;lcdT.anisotropy=4;
+ const lcd=document.createElement('canvas');const LK=3;lcd.width=640*LK;lcd.height=Math.round(640*sh/sw)*LK;const lcdT=new THREE.CanvasTexture(lcd);lcdT.colorSpace=THREE.SRGBColorSpace;const MA=R.capabilities.getMaxAnisotropy();lcdT.anisotropy=MA;lcdT.generateMipmaps=false;lcdT.minFilter=THREE.LinearFilter;
  const scrM=new THREE.Mesh(new THREE.PlaneGeometry(sw,sh),new THREE.MeshBasicMaterial({map:lcdT,toneMapped:false}));scrM.position.set(0,sy,FZ+.0008);tilt.add(scrM);
- const glass=new THREE.Mesh(new THREE.ShapeGeometry(rr(sw+.03,sh+.03,.018)),new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:0,roughness:.03,transparent:true,opacity:.14,envMapIntensity:1.6,depthWrite:false}));glass.position.set(0,sy,FZ+.0016);tilt.add(glass);
+ const glass=new THREE.Mesh(new THREE.ShapeGeometry(rr(sw+.03,sh+.03,.018)),new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:0,roughness:.03,transparent:true,opacity:.07,envMapIntensity:1.4,depthWrite:false}));glass.position.set(0,sy,FZ+.0016);tilt.add(glass);
  // click wheel
- const wr=.205,wy=-.235;const wl=mk(512,512,(g,w)=>{const c=w/2;g.fillStyle='#ededeb';g.fillRect(0,0,w,w);g.fillStyle='#a3a7aa';g.font='600 34px "Instrument Sans",sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText('MENU',c,60);
+ const wr=.205,wy=-.235;const wl=mk(1024,1024,(g)=>{g.scale(2,2);const w=512;const c=w/2;g.fillStyle='#ededeb';g.fillRect(0,0,w,w);g.fillStyle='#a3a7aa';g.font='600 34px "Instrument Sans",sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText('MENU',c,60);
   const tri=(x,y,d)=>{g.beginPath();g.moveTo(x,y-14);g.lineTo(x,y+14);g.lineTo(x+d*22,y);g.fill()};tri(c+160,c,1);tri(c+182,c,1);g.fillRect(c+204,c-14,5,28);tri(c-160,c,-1);tri(c-182,c,-1);g.fillRect(c-209,c-14,5,28);tri(c-24,c+196,1);g.fillRect(c+6,c+182,7,28);g.fillRect(c+18,c+182,7,28)});
- const wlT=new THREE.CanvasTexture(wl);wlT.colorSpace=THREE.SRGBColorSpace;
+ const wlT=new THREE.CanvasTexture(wl);wlT.colorSpace=THREE.SRGBColorSpace;wlT.anisotropy=R.capabilities.getMaxAnisotropy();
  const wheel=new THREE.Mesh(new THREE.CircleGeometry(wr,96),new THREE.MeshPhysicalMaterial({map:wlT,roughness:.62,clearcoat:.15}));wheel.position.set(0,wy,FZ+.0004);wheel.receiveShadow=true;tilt.add(wheel);
  const ring=new THREE.Mesh(new THREE.RingGeometry(wr-.002,wr+.002,96),new THREE.MeshStandardMaterial({color:0xcfd0cd,roughness:.5}));ring.position.set(0,wy,FZ+.0006);tilt.add(ring);
  const cg=new THREE.CylinderGeometry(.074,.076,.01,72);cg.rotateX(Math.PI/2);const cbtn=new THREE.Mesh(cg,new THREE.MeshPhysicalMaterial({color:0xf7f7f5,roughness:.25,clearcoat:1,clearcoatRoughness:.06}));cbtn.position.set(0,wy,FZ+.004);cbtn.castShadow=true;tilt.add(cbtn);
@@ -42,7 +42,7 @@ export async function mount(box,api){
  const rim=new THREE.DirectionalLight(0xffe7c4,.8);rim.position.set(1.5,-.6,-1.8);S.add(rim);S.add(new THREE.HemisphereLight(0xfff8ec,0xc9ad80,.35));
  // LCD drawing, tied to the existing track browser state
  const ART={};function art(u){if(!u)return null;if(ART[u])return ART[u].complete?ART[u]:null;const im=new Image();im.crossOrigin='anonymous';im.onload=()=>{drawLCD();need()};im.src=u;ART[u]=im;return null}
- function drawLCD(){const g=lcd.getContext('2d'),w=lcd.width,h=lcd.height,st=api.state();g.fillStyle='#f6f7f6';g.fillRect(0,0,w,h);
+ function drawLCD(){const g=lcd.getContext('2d'),w=lcd.width/LK,h=lcd.height/LK,st=api.state();g.setTransform(LK,0,0,LK,0,0);g.imageSmoothingQuality='high';g.fillStyle='#f6f7f6';g.fillRect(0,0,w,h);
   const hb=g.createLinearGradient(0,0,0,34);hb.addColorStop(0,'#f8f8f8');hb.addColorStop(1,'#d5d8da');g.fillStyle=hb;g.fillRect(0,0,w,34);g.fillStyle='#b8bcbe';g.fillRect(0,34,w,1);
   g.font='600 17px "Instrument Sans",sans-serif';g.textBaseline='middle';g.fillStyle='#2d5ea8';g.fillText(st.playing?'Now Playing':'Music',12,18);g.fillStyle='#111';g.textAlign='right';g.fillText(`${st.sel+1} of ${st.n}`,w-12,18);g.textAlign='left';
   const lw=w*.56,RH=(h-35)/7;g.save();g.beginPath();g.rect(0,35,lw,h-35);g.clip();g.font='17px "Instrument Sans",sans-serif';
