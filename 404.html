@@ -698,4 +698,4 @@ const tick=()=>{if(!raf)raf=requestAnimationFrame(frame)};
 addEventListener('resize',tick,{passive:true});
 if(!rm){addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;tx=e.clientX/innerWidth-.25;ty=e.clientY/innerHeight-.3;tick()},{passive:true});addEventListener('scroll',tick,{passive:true});document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()})}
 tick()})();
-</script></body></html>
+</script><script type="module" src="/prism.js"></script></body></html>
